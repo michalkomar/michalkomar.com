@@ -77,6 +77,33 @@ em {
     margin-right: 8px;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #e4e4e4;
+    }
+
+    h2 {
+        color: #fff;
+    }
+
+    p {
+        color: #e4e4e4;
+    }
+
+    a {
+        color: #5c9eff;
+    }
+
+    a:hover {
+        color: #8db8ff;
+    }
+
+    strong {
+        color: #fff;
+    }
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
