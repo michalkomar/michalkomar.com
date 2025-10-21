@@ -36,6 +36,14 @@ h2 {
     color: #000;
 }
 
+h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #000;
+}
+
 p {
     margin-bottom: 12px;
     font-size: 1rem;
@@ -90,7 +98,7 @@ em {
         color: #e4e4e4;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
         color: #fff;
     }
 
