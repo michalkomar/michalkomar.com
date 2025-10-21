@@ -1,0 +1,44 @@
+{
+  "updates": [
+    {
+      "date": "2025-10-21",
+      "timestamp": "2025-10-21T10:00:00Z",
+      "title": "Supervisor Hub Enters Production Phase",
+      "description": "Our AI oversight platform is now handling live transactions, providing real-time monitoring and compliance validation for autonomous banking agents.",
+      "category": "product"
+    },
+    {
+      "date": "2025-10-15",
+      "timestamp": "2025-10-15T14:30:00Z",
+      "title": "Agent Lab Expands Testing Framework",
+      "description": "Added new simulation capabilities for testing AI agents in complex multi-party banking scenarios, including edge cases for regulatory compliance.",
+      "category": "development"
+    },
+    {
+      "date": "2025-10-08",
+      "timestamp": "2025-10-08T09:15:00Z",
+      "title": "Shift AI Performance Milestone",
+      "description": "Platform now processes over 50,000 intelligent automation tasks daily across customer service, fraud detection, and document processing workflows.",
+      "category": "milestone"
+    },
+    {
+      "date": "2025-09-28",
+      "timestamp": "2025-09-28T16:45:00Z",
+      "title": "Speaking at Digital Banking Innovation Summit",
+      "description": "Presented on 'Building Trust in Agentic AI: Lessons from Banking' - discussing the balance between autonomy and oversight in financial services.",
+      "category": "speaking"
+    },
+    {
+      "date": "2025-09-20",
+      "timestamp": "2025-09-20T11:20:00Z",
+      "title": "New AI Strategy Workshop Series",
+      "description": "Launching internal program to train product teams on AI integration, focusing on practical implementation and ethical considerations in banking.",
+      "category": "initiative"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2025-10-21T10:00:00Z",
+    "updateFrequency": "weekly",
+    "feedVersion": "1.0"
+  }
+}
