@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Wrangler
+.wrangler/
+wrangler.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

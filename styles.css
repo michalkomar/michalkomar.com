@@ -18,8 +18,15 @@ main {
     padding: 40px 20px;
 }
 
-section {
+section, header {
     margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #000;
 }
 
 h2 {
@@ -83,7 +90,7 @@ em {
         color: #e4e4e4;
     }
 
-    h2 {
+    h1, h2 {
         color: #fff;
     }
 
@@ -111,6 +118,10 @@ em {
 
     main {
         padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 
     h2 {
