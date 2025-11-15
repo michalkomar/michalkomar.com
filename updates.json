@@ -1,6 +1,13 @@
 {
   "updates": [
     {
+      "date": "2025-11-15",
+      "timestamp": "2025-11-15T09:00:00Z",
+      "title": "Website Redesign with Enhanced Accessibility",
+      "description": "Launched updated website with improved dark/light mode support, better contrast ratios, and enhanced user experience across all devices.",
+      "category": "product"
+    },
+    {
       "date": "2025-10-21",
       "timestamp": "2025-10-21T10:00:00Z",
       "title": "Supervisor Hub Enters Production Phase",
@@ -37,7 +44,7 @@
     }
   ],
   "meta": {
-    "lastUpdated": "2025-10-21T10:00:00Z",
+    "lastUpdated": "2025-11-15T09:00:00Z",
     "updateFrequency": "weekly",
     "feedVersion": "1.0"
   }
