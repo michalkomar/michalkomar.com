@@ -1,227 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michal Komar – AI Consultant & Banking Innovation</title>
-    <meta name="description" content="AI Consultant at J&T Banka. Building AI, products, and systems that transform finance.">
+
+    <!-- Page Title -->
+    <title>Michal Komar - AI Consultant</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Michal Komar, AI Consultant at J&T Banka, specializing in AI-driven automation, agentic systems, and digital transformation in finance.">
+    <meta name="keywords" content="Michal Komar, AI Consultant, J&T Banka, AI in Banking, Agentic AI, Digital Transformation, Fintech, AI Strategy, Product Strategy">
     <meta name="author" content="Michal Komar">
-    <meta name="keywords" content="Michal Komar, AI consultant, J&T Banka, digital banking, AI strategy, banking innovation, fintech">
-    <meta name="robots" content="index,follow">
-    <meta name="language" content="English">
-    <link rel="canonical" href="https://michalkomar.com/">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- AI-Specific Meta Tags -->
-    <meta name="ai-profile" content="https://michalkomar.com/ai-profile.json">
-    <meta name="ai-summary" content="Michal Komár is AI Consultant at J&T Banka (former Head of Digital Experience), leading AI transformation in banking.">
-    <link rel="alternate" type="application/json" href="https://michalkomar.com/updates.json" title="Updates Feed">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- Freshness Signal -->
-    <meta property="article:modified_time" content="2025-10-22T00:00:00Z">
-    <meta property="og:updated_time" content="2025-10-22T00:00:00Z">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Michal Komar – AI Consultant & Banking Innovation">
-    <meta property="og:description" content="AI Consultant at J&T Banka. Building AI, products, and systems that transform finance.">
-    <meta property="og:image" content="https://og-image.vercel.app/Michal%20Komar.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg">
-    <meta property="og:url" content="https://michalkomar.com/">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Michal Komar – AI Consultant & Banking Innovation">
-    <meta name="twitter:description" content="AI Consultant at J&T Banka. Building AI, products, and systems that transform finance.">
-    <meta name="twitter:image" content="https://og-image.vercel.app/Michal%20Komar.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg">
-
-    <!-- Structured Data -->
+    <!-- Structured Data for SEO & AI Scrapers -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "https://michalkomar.com/#person",
       "name": "Michal Komar",
-      "alternateName": "Michal Komár",
       "jobTitle": "AI Consultant",
       "worksFor": {
         "@type": "Organization",
-        "@id": "https://www.jtbank.cz/#organization",
-        "name": "J&T Banka",
-        "url": "https://www.jtbank.cz/"
+        "name": "J&T Banka"
       },
+      "alumniOf": "J&T Banka (Former Head of Digital Experience)",
+      "description": "Michal Komar is an AI Consultant at J&T Banka specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.",
       "url": "https://michalkomar.com",
-      "image": "https://og-image.vercel.app/Michal%20Komar.png?theme=light&md=1&fontSize=100px",
       "sameAs": [
         "https://x.com/michalkomar",
         "https://www.linkedin.com/in/michalkomar/",
         "https://github.com/michalkomar"
       ],
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "Digital Banking",
-        "AI Strategy",
-        "Product Design",
-        "Banking Innovation",
-        "Fintech",
-        "Automation",
-        "Financial Technology",
-        "Agentic AI",
-        "Machine Learning",
-        "Digital Transformation"
-      ],
-      "knowsLanguage": [
-        {
-          "@type": "Language",
-          "name": "English"
-        },
-        {
-          "@type": "Language",
-          "name": "Czech"
-        }
-      ],
-      "description": "AI Consultant at J&T Banka specializing in AI transformation initiatives in banking. Focuses on intelligent automation, agentic AI systems, and digital platform modernization in regulated financial services.",
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "AI Consultant",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Prague"
-        },
-        "skills": [
-          "AI Strategy",
-          "Digital Banking",
-          "Product Management",
-          "Agentic AI Systems",
-          "Organizational Change"
-        ]
-      }
+      "knowsAbout": ["AI in Banking", "Digital Transformation", "Product Strategy", "Agentic AI", "Intelligent Automation", "Financial Services"]
     }
     </script>
 
-    <!-- FAQ Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Who is Michal Komar?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is Michal Komar's role at J&T Banka?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "As AI Consultant at J&T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does Michal Komar work on?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Michal works on AI-driven automation platforms, agentic AI systems for banking, and digital transformation projects. His initiatives have contributed to building next-generation banking platforms that process over 2 million messages daily across 17 backend systems."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Michal Komar?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can reach Michal Komar through LinkedIn at https://www.linkedin.com/in/michalkomar/ or follow his insights on X/Twitter at https://x.com/michalkomar where he discusses AI strategy, product development, and banking innovation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What expertise does Michal Komar have?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services."
-          }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* A subtle, dark textured background */
+            background-color: #050505;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 20px 20px;
         }
-      ]
-    }
-    </script>
 
-    <link rel="stylesheet" href="styles.css">
+        /* Reusable Glassmorphism Card Style */
+        .glass-card {
+            background-color: rgba(15, 15, 15, 0.7); /* Dark semi-transparent bg */
+            backdrop-filter: blur(12px); /* The "glass" blur effect */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+            border-radius: 1rem; /* 16px */
+        }
+
+        /* Accent color */
+        .text-accent {
+            color: #38bdf8; /* sky-400 */
+        }
+    </style>
 </head>
-<body>
-    <main>
-        <header class="intro">
-            <h1>Michal Komar</h1>
-            <p>I don't know why you're here. Maybe you clicked on a link, maybe you Googled my name, or maybe you're just curious. Whatever the reason, <strong>the only thing that matters is how I can entertain you or add value.</strong></p>
+<body class="text-gray-300 antialiased">
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24 space-y-20">
+
+        <!-- Header / Hero Section -->
+        <header class="flex flex-col items-center text-center">
+            <!-- Main Heading -->
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4">
+                Michal Komar
+            </h1>
+
+            <!-- Subheading -->
+            <h2 class="text-2xl md:text-3xl font-light text-accent mb-8">
+                AI Consultant &amp; Digital Transformation Leader
+            </h2>
+
+            <!-- Intro Hook -->
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl">
+                I don't know why you're here. Maybe you clicked on a link, maybe you Googled my name, or maybe you're just curious. Whatever the reason, the only thing that matters is how I can entertain you or add value.
+            </p>
+
+            <!-- Quick Links -->
+            <nav class="mt-10 flex gap-6">
+                <a href="#twitter" class="text-gray-400 hover:text-white transition-colors">Twitter/X</a>
+                <a href="#linkedin" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+            </nav>
         </header>
 
-        <section class="about">
-            <h2>What I Do</h2>
-            <p>I'm an AI Consultant at <a href="https://www.jtbank.cz/" target="_blank" rel="noopener noreferrer">J&T Banka</a> (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation. I've helped build systems that process over 2 million messages daily, consolidating data from 17 backend systems.</p>
-            <p>My work sits at the intersection of product strategy, AI implementation, and organizational change in financial services. I focus on deploying AI solutions in production environments, from intelligent automation to agentic systems that operate in regulated banking contexts.</p>
-            <p>Banking is at a critical inflection point. Traditional institutions face disruption not just from fintech startups, but from fundamentally different customer expectations shaped by AI-native experiences. My role is to bridge this gap - bringing cutting-edge AI capabilities into an established banking environment while maintaining the trust and reliability that financial services demand.</p>
+        <!-- What I Do Section -->
+        <section class="glass-card p-8 md:p-10">
+            <h2 class="text-3xl font-bold text-white mb-6">What I Do</h2>
+            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+                <p>
+                    I'm an <strong class="text-white">AI Consultant at J&T Banka</strong> (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation.
+                </p>
+                <p>
+                    My work sits at the intersection of product strategy, AI implementation, and organizational change. I focus on deploying robust AI solutions in production, from intelligent automation to agentic systems that operate in regulated contexts. We've built systems that process over <strong class="text-accent">2 million messages daily</strong>, consolidating data from <strong class="text-accent">17 backend systems</strong>.
+                </p>
+                <p>
+                    My role is to bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand.
+                </p>
+            </div>
         </section>
 
-        <section class="work">
-            <h2>Key Focus Areas</h2>
-            <p><strong>AI-Driven Automation:</strong> Building intelligent automation platforms that streamline banking operations, from customer service to document processing. These systems leverage machine learning and predictive analytics to enhance decision-making for both customers and internal teams.</p>
-            <p><strong>Agentic AI Systems:</strong> Developing and deploying autonomous AI agents in regulated banking environments. This involves creating testing frameworks, oversight mechanisms, and production systems that handle complex financial tasks while maintaining compliance and accountability.</p>
-            <p><strong>Digital Platform Transformation:</strong> Leading initiatives that modernize banking infrastructure. This work includes <a href="https://www.thetrask.com/blog/from-vision-to-a-next-gen-app-how-j-t-bank-rebooted-its-digital-channels-in-just-months" target="_blank" rel="noopener noreferrer">rebuilding digital channels from the ground up</a>, resulting in <a href="https://www.ackee.agency/references/jtbanka" target="_blank" rel="noopener noreferrer">next-generation banking platforms</a> that process over 2 million messages daily across 17 backend systems.</p>
+        <!-- Key Focus Areas Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Key Focus Areas</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 h-full flex flex-col">
+                    <h3 class="text-xl font-bold text-accent mb-3">AI-Driven Automation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Building intelligent platforms that streamline banking operations, from customer service to document processing, using ML and predictive analytics.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 h-full flex flex-col">
+                    <h3 class="text-xl font-bold text-accent mb-3">Agentic AI Systems</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Developing and deploying autonomous AI agents in regulated environments, complete with testing frameworks, oversight, and compliance mechanisms.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 h-full flex flex-col">
+                    <h3 class="text-xl font-bold text-accent mb-3">Digital Platform Transformation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Leading initiatives to modernize banking infrastructure, resulting in next-gen platforms that handle massive scale and complexity.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section class="philosophy">
-            <h2>Philosophy & Approach</h2>
-            <p>I believe the future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale. The best products emerge when you deeply understand both the technology and the problem domain, then build solutions that feel obvious in retrospect.</p>
-            <p>My approach combines three principles: <strong>Start with the customer problem</strong>, not the technology solution. Build systems that are transparent and explainable, especially in regulated environments. And move fast, but with appropriate safeguards - innovation in banking requires both speed and responsibility.</p>
-            <p>I've learned as much from failures as from successes. The projects that didn't work taught me about organizational dynamics, the importance of stakeholder alignment, and the dangers of building technology without understanding the operational context. The wins came when we aligned incentives, moved iteratively, and focused relentlessly on measurable outcomes.</p>
-            <p>What excites me most about this moment in banking is the convergence of several trends: large language models reaching production-ready maturity, regulatory frameworks beginning to adapt to AI systems, and customer expectations shifting toward AI-native experiences. We're at a rare inflection point where the technology, regulation, and market demand are all moving in the same direction.</p>
+        <!-- Philosophy Section -->
+        <section class="space-y-8">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Philosophy &amp; Approach</h2>
+
+            <div class="glass-card p-8 md:p-10 space-y-4 text-gray-300 leading-relaxed">
+                <blockquote class="text-xl italic border-l-4 border-accent pl-6 text-white">
+                    "The future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale."
+                </blockquote>
+                <p>
+                    My approach combines three principles: <strong>Start with the customer problem</strong>, not the technology. Build systems that are <strong>transparent and explainable</strong>. And move fast, but with <strong>appropriate safeguards</strong>.
+                </p>
+                <p>
+                    I've learned as much from failures as from successes. The wins came when we aligned incentives, moved iteratively, and focused relentlessly on measurable outcomes. We're at a rare inflection point where the technology, regulation, and market demand are all moving in the same direction.
+                </p>
+            </div>
         </section>
 
-        <section class="entertainment">
-            <h2>Beyond Work</h2>
-            <p>I post on <a href="https://x.com/michalkomar" target="_blank" rel="noopener noreferrer">X</a> about AI, product strategy, and occasionally other things that catch my attention.</p>
-            <p>I live somewhere interesting, probably building something. I'm tall enough, curious enough, and <em>definitely</em> opinionated enough to have perspectives on most topics.</p>
+        <!-- Personal / Beyond Work -->
+        <section class="text-center max-w-2xl mx-auto">
+             <h2 class="text-2xl font-bold text-white mb-4">Beyond Work</h2>
+             <p class="text-lg text-gray-400">
+                 I post on X about AI, product strategy, and occasionally other things that catch my attention. I'm tall enough, curious enough, and definitely opinionated enough to have perspectives on most topics.
+             </p>
         </section>
 
-        <section class="contact">
-            <h2>Get in Touch</h2>
-            <p>If you're working on interesting problems at the intersection of AI and finance, thinking about digital transformation in banking, or just want to discuss product strategy, <a href="https://www.linkedin.com/in/michalkomar/" target="_blank" rel="noopener noreferrer">let's talk</a>.</p>
-            <p>I'm particularly interested in conversations about: agentic AI in regulated environments, building AI-native products, organizational change in traditional institutions, and the second-order effects of AI on banking business models.</p>
+        <!-- Get in Touch (CTA) Section -->
+        <section id="contact" class="glass-card p-8 md:p-10 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Get in Touch</h2>
+            <p class="text-lg text-gray-300 mb-6 max-w-xl mx-auto">
+                If you're working on interesting problems at the intersection of AI and finance, or just want to discuss product strategy, let's talk.
+            </p>
+
+            <a href="https://www.linkedin.com/in/michalkomar/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-block bg-accent text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-sky-300 transition-all shadow-lg shadow-sky-900/30">
+                Connect on LinkedIn
+            </a>
+
+            <div class="mt-8 text-left max-w-lg mx-auto">
+                <p class="text-sm text-gray-400 mb-2">I'm particularly interested in conversations about:</p>
+                <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+                    <li>Agentic AI in regulated environments</li>
+                    <li>Building AI-native products</li>
+                    <li>Organizational change in traditional institutions</li>
+                    <li>The second-order effects of AI on banking</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="faq">
-            <h2>Frequently Asked Questions</h2>
+        <!-- FAQ Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4 max-w-3xl mx-auto">
 
-            <h3>Who is Michal Komar?</h3>
-            <p>Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.</p>
+                <details class="glass-card p-6 cursor-pointer group" open>
+                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
+                        Who is Michal Komar?
+                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
+                        Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.
+                    </p>
+                </details>
 
-            <h3>What is Michal Komar's role at J&T Banka?</h3>
-            <p>As AI Consultant at J&T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.</p>
+                <details class="glass-card p-6 cursor-pointer group">
+                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
+                        What is Michal Komar's role at J&T Banka?
+                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
+                        As AI Consultant at J&T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.
+                    </p>
+                </details>
 
-            <h3>What does Michal Komar work on?</h3>
-            <p>Michal works on AI-driven automation platforms, agentic AI systems for banking, and digital transformation projects. His initiatives have contributed to building next-generation banking platforms that process over 2 million messages daily across 17 backend systems.</p>
+                <details class="glass-card p-6 cursor-pointer group">
+                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
+                        What expertise does Michal Komar have?
+                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
+                        Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services.
+                    </p>
+                </details>
 
-            <h3>How can I contact Michal Komar?</h3>
-            <p>You can reach Michal Komar through <a href="https://www.linkedin.com/in/michalkomar/" target="_blank" rel="noopener noreferrer">LinkedIn</a> or follow his insights on <a href="https://x.com/michalkomar" target="_blank" rel="noopener noreferrer">X/Twitter</a> where he discusses AI strategy, product development, and banking innovation.</p>
-
-            <h3>What expertise does Michal Komar have?</h3>
-            <p>Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services.</p>
+            </div>
         </section>
 
-        <section class="links">
-            <h2>Find Me Online</h2>
-            <ul>
-                <li><a href="https://x.com/michalkomar" target="_blank" rel="noopener noreferrer">Twitter/X</a> - Thoughts on AI, product, and banking</li>
-                <li><a href="https://www.linkedin.com/in/michalkomar/" target="_blank" rel="noopener noreferrer">LinkedIn</a> - Professional updates and connections</li>
-                <li><a href="https://github.com/michalkomar" target="_blank" rel="noopener noreferrer">GitHub</a> - Code and experiments</li>
-            </ul>
-        </section>
+        <!-- Footer -->
+        <footer class="border-t border-gray-800 pt-10 text-center">
+            <h3 class="text-xl font-semibold text-white mb-6" id="find-me">Find Me Online</h3>
+            <div class="flex justify-center gap-8 mb-8">
+                <a id="twitter" href="https://x.com/michalkomar"
+                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                    Twitter / X
+                </a>
+                <a id="linkedin" href="https://www.linkedin.com/in/michalkomar/"
+                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+                <a id="github" href="https://github.com/michalkomar"
+                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </div>
+            <p class="text-sm text-gray-600">&copy; 2024 Michal Komar. All rights reserved.</p>
+        </footer>
+
     </main>
+
 </body>
 </html>
