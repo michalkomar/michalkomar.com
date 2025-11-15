@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/michalkomar/michalkomar.com#readme",
   "devDependencies": {
-    "wrangler": "^4.44.0"
+    "wrangler": "^4.47.0"
   }
 }
