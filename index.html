@@ -1,328 +1,599 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Page Title -->
-    <title>Michal Komar - AI Consultant</title>
-
-    <!-- SEO Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michal Komar – AI Consultant</title>
     <meta name="description" content="Michal Komar, AI Consultant at J&T Banka, specializing in AI-driven automation, agentic systems, and digital transformation in finance.">
-    <meta name="keywords" content="Michal Komar, AI Consultant, J&T Banka, AI in Banking, Agentic AI, Digital Transformation, Fintech, AI Strategy, Product Strategy">
     <meta name="author" content="Michal Komar">
+    <link rel="canonical" href="https://michalkomar.com">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://michalkomar.com">
+    <meta property="og:title" content="Michal Komar – AI Consultant">
+    <meta property="og:description" content="Prague-based consultant aligning agentic AI, automation, and UX for banks across the EU & US.">
+    <meta property="og:image" content="https://michalkomar.com/favicon.svg">
+    <meta property="og:locale" content="en_US">
 
-    <!-- Google Font: Inter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Michal Komar – AI Consultant">
+    <meta name="twitter:description" content="Agentic AI and digital transformation guidance for regulated finance.">
+    <meta name="twitter:image" content="https://michalkomar.com/favicon.svg">
+
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#050505">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#050505">
+    <meta name="geo.region" content="CZ-PR">
+    <meta name="geo.placename" content="Prague, Czech Republic">
+    <meta name="geo.position" content="50.0755;14.4378">
+    <meta name="ICBM" content="50.0755,14.4378">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Structured Data for SEO & AI Scrapers -->
+    <style>
+        :root {
+            --terminal-bg: #050505;
+            --terminal-text: #f5f5f0;
+            --terminal-muted: #c1cad4;
+            --terminal-accent: #7df9ff;
+            --prompt: #7df9ff;
+            --error: #ff7da3;
+            --success: #7dffa0;
+            --border: rgba(255, 255, 255, 0.18);
+            --shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+            --terminal-panel: rgba(10, 10, 10, 0.7);
+            --terminal-input-bg: rgba(5, 5, 5, 0.85);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --terminal-bg: #dfe3e8;
+                --terminal-text: #0f172a;
+                --terminal-muted: #4b5563;
+                --terminal-accent: #004b8c;
+                --prompt: #0054a3;
+                --error: #b42318;
+                --success: #1d7a46;
+                --border: rgba(15, 23, 42, 0.15);
+                --shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+                --terminal-panel: #ffffff;
+                --terminal-input-bg: #f8fafc;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            padding: clamp(1rem, 4vw, 2.5rem);
+        }
+
+        main.terminal {
+            width: min(960px, 100%);
+            background: var(--terminal-panel);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .terminal-bar span {
+            color: var(--terminal-muted);
+        }
+
+        .status-dot {
+            width: 0.65rem;
+            height: 0.65rem;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot:nth-child(1) { background: #ff5f56; }
+        .status-dot:nth-child(2) { background: #ffbd2e; }
+        .status-dot:nth-child(3) { background: #27c93f; }
+
+        .terminal-window {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .line {
+            margin: 0;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .line a {
+            color: var(--terminal-accent);
+            text-decoration: underline;
+        }
+
+        .line.system { color: var(--terminal-muted); }
+        .line.prompt { color: var(--prompt); }
+        .line.error { color: var(--error); }
+        .line.success { color: var(--success); }
+
+        .terminal-form {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            background: var(--terminal-input-bg);
+        }
+
+        .terminal-form label {
+            color: var(--prompt);
+        }
+
+        .terminal-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--terminal-text);
+            outline: none;
+        }
+
+        .terminal-form input::placeholder {
+            color: var(--terminal-muted);
+            opacity: 0.75;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .sr-only-block {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        pre.command-block {
+            margin: 0 0 1rem;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            color: var(--terminal-text);
+            overflow-x: auto;
+        }
+
+        pre.command-block a {
+            color: var(--terminal-accent);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .terminal-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .terminal-bar {
+                background: #f0f4f9;
+            }
+        }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Michal Komar",
       "jobTitle": "AI Consultant",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "J&T Banka"
-      },
-      "alumniOf": "J&T Banka (Former Head of Digital Experience)",
-      "description": "Michal Komar is an AI Consultant at J&T Banka specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.",
+      "description": "Supplies regulated banks with agentic AI, automation, and digital experience systems.",
       "url": "https://michalkomar.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      },
       "sameAs": [
         "https://x.com/michalkomar",
         "https://www.linkedin.com/in/michalkomar/",
         "https://github.com/michalkomar"
       ],
-      "knowsAbout": ["AI in Banking", "Digital Transformation", "Product Strategy", "Agentic AI", "Intelligent Automation", "Financial Services"]
+      "worksFor": {
+        "@type": "Organization",
+        "name": "J&T Banka"
+      },
+      "knowsAbout": ["Agentic AI", "Automation", "Digital banking", "Product strategy"],
+      "areaServed": ["European Union", "United States"]
     }
     </script>
-
-    <style>
-        /* Light mode defaults */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
-            background-size: 20px 20px;
-            color: #1f2937;
-        }
-
-        /* Light mode glass cards */
-        .glass-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 1rem;
-        }
-
-        /* Accent color */
-        .text-accent {
-            color: #0284c7; /* sky-600 for light mode */
-        }
-
-        /* Override Tailwind gray colors for light mode readability */
-        .text-white {
-            color: #111827 !important;
-        }
-
-        .text-gray-300,
-        .text-gray-400 {
-            color: #4b5563 !important; /* gray-600 */
-        }
-
-        .text-gray-600 {
-            color: #374151 !important; /* gray-700 */
-        }
-
-        /* Button styling for better contrast */
-        .btn-primary {
-            background-color: #0284c7 !important;
-            color: white !important;
-            border: 2px solid #0284c7 !important;
-            box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.4) !important;
-        }
-
-        .btn-primary:hover {
-            background-color: #0369a1 !important;
-            border-color: #0369a1 !important;
-            box-shadow: 0 6px 20px 0 rgba(2, 132, 199, 0.6) !important;
-        }
-
-        /* Dark mode */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #050505;
-                background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-                color: #d1d5db;
-            }
-
-            .glass-card {
-                background-color: rgba(15, 15, 15, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .text-accent {
-                color: #38bdf8; /* sky-400 for dark mode */
-            }
-
-            /* Restore original colors in dark mode */
-            .text-white {
-                color: #ffffff !important;
-            }
-
-            .text-gray-300 {
-                color: #d1d5db !important;
-            }
-
-            .text-gray-400 {
-                color: #9ca3af !important;
-            }
-
-            .text-gray-600 {
-                color: #4b5563 !important;
-            }
-
-            .btn-primary {
-                background-color: #38bdf8 !important;
-                color: #0a0a0a !important;
-                border: 2px solid #38bdf8 !important;
-                box-shadow: 0 4px 14px 0 rgba(56, 189, 248, 0.5) !important;
-            }
-
-            .btn-primary:hover {
-                background-color: #7dd3fc !important;
-                border-color: #7dd3fc !important;
-                box-shadow: 0 6px 20px 0 rgba(56, 189, 248, 0.7) !important;
-            }
-        }
-    </style>
 </head>
-<body class="antialiased">
-
-    <!-- Main Content Container -->
-    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24 space-y-20">
-
-        <!-- Header / Hero Section -->
-        <header class="flex flex-col items-center text-center">
-            <!-- Main Heading -->
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-4">
-                Michal Komar
-            </h1>
-
-            <!-- Subheading -->
-            <h2 class="text-2xl md:text-3xl font-light text-accent mb-8">
-                AI Consultant &amp; Digital Transformation Leader
-            </h2>
-
-            <!-- Intro Hook -->
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl">
-                I don't know why you're here. Maybe you clicked on a link, maybe you Googled my name, or maybe you're just curious. Whatever the reason, the only thing that matters is how I can entertain you or add value.
-            </p>
-        </header>
-
-        <!-- What I Do Section -->
-        <section class="glass-card p-8 md:p-10">
-            <h2 class="text-3xl font-bold text-white mb-6">What I Do</h2>
-            <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
-                <p>
-                    I'm an <strong class="text-white">AI Consultant at J&T Banka</strong> (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation.
-                </p>
-                <p>
-                    My work sits at the intersection of product strategy, AI implementation, and organizational change. I focus on deploying robust AI solutions in production, from intelligent automation to agentic systems that operate in regulated contexts. We've built systems that process over <strong class="text-accent">2 million messages daily</strong>, consolidating data from <strong class="text-accent">17 backend systems</strong>.
-                </p>
-                <p>
-                    My role is to bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand.
-                </p>
-            </div>
-        </section>
-
-        <!-- Key Focus Areas Section -->
-        <section>
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Key Focus Areas</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="glass-card p-6 h-full flex flex-col">
-                    <h3 class="text-xl font-bold text-accent mb-3">AI-Driven Automation</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Building intelligent platforms that streamline banking operations, from customer service to document processing, using ML and predictive analytics.
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card p-6 h-full flex flex-col">
-                    <h3 class="text-xl font-bold text-accent mb-3">Agentic AI Systems</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Developing and deploying autonomous AI agents in regulated environments, complete with testing frameworks, oversight, and compliance mechanisms.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card p-6 h-full flex flex-col">
-                    <h3 class="text-xl font-bold text-accent mb-3">Digital Platform Transformation</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Leading initiatives to modernize banking infrastructure, resulting in next-gen platforms that handle massive scale and complexity.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Philosophy Section -->
-        <section class="space-y-8">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Philosophy &amp; Approach</h2>
-
-            <div class="glass-card p-8 md:p-10 space-y-4 text-gray-300 leading-relaxed">
-                <blockquote class="text-xl italic border-l-4 border-accent pl-6 text-white">
-                    "The future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale."
-                </blockquote>
-                <p>
-                    My approach combines three principles: <strong>Start with the customer problem</strong>, not the technology. Build systems that are <strong>transparent and explainable</strong>. And move fast, but with <strong>appropriate safeguards</strong>.
-                </p>
-                <p>
-                    I've learned as much from failures as from successes. The wins came when we aligned incentives, moved iteratively, and focused relentlessly on measurable outcomes. We're at a rare inflection point where the technology, regulation, and market demand are all moving in the same direction.
-                </p>
-            </div>
-        </section>
-
-        <!-- Personal / Beyond Work -->
-        <section class="text-center max-w-2xl mx-auto">
-             <h2 class="text-2xl font-bold text-white mb-4">Beyond Work</h2>
-             <p class="text-lg text-gray-400">
-                 I post on X about AI, product strategy, and occasionally other things that catch my attention. I'm tall enough, curious enough, and definitely opinionated enough to have perspectives on most topics.
-             </p>
-        </section>
-
-        <!-- Get in Touch (CTA) Section -->
-        <section id="contact" class="glass-card p-8 md:p-10 text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Get in Touch</h2>
-            <p class="text-lg text-gray-300 mb-6 max-w-xl mx-auto">
-                If you're working on interesting problems at the intersection of AI and finance, or just want to discuss product strategy, let's talk.
-            </p>
-
-            <a href="https://www.linkedin.com/in/michalkomar/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn-primary inline-block font-bold py-3 px-8 rounded-lg text-lg transition-all">
-                Connect on LinkedIn
-            </a>
-
-            <div class="mt-8 text-left max-w-lg mx-auto">
-                <p class="text-sm text-gray-400 mb-2">I'm particularly interested in conversations about:</p>
-                <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
-                    <li>Agentic AI in regulated environments</li>
-                    <li>Building AI-native products</li>
-                    <li>Organizational change in traditional institutions</li>
-                    <li>The second-order effects of AI on banking</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section>
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
-            <div class="space-y-4 max-w-3xl mx-auto">
-
-                <details class="glass-card p-6 cursor-pointer group" open>
-                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
-                        Who is Michal Komar?
-                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
-                    </summary>
-                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
-                        Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.
-                    </p>
-                </details>
-
-                <details class="glass-card p-6 cursor-pointer group">
-                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
-                        What is Michal Komar's role at J&T Banka?
-                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
-                    </summary>
-                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
-                        As AI Consultant at J&T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.
-                    </p>
-                </details>
-
-                <details class="glass-card p-6 cursor-pointer group">
-                    <summary class="font-medium text-lg text-white list-none flex justify-between items-center">
-                        What expertise does Michal Komar have?
-                        <span class="text-accent transform transition-transform duration-200 group-open:rotate-45">+</span>
-                    </summary>
-                    <p class="text-gray-400 mt-3 text-base leading-relaxed">
-                        Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services.
-                    </p>
-                </details>
-
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="border-t border-gray-800 pt-10 text-center">
-            <h3 class="text-xl font-semibold text-white mb-6" id="find-me">Find Me Online</h3>
-            <div class="flex justify-center gap-8 mb-8">
-                <a id="twitter" href="https://x.com/michalkomar"
-                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                    Twitter / X
-                </a>
-                <a id="linkedin" href="https://www.linkedin.com/in/michalkomar/"
-                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-                <a id="github" href="https://github.com/michalkomar"
-                   class="text-gray-400 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
-            </div>
-            <p class="text-sm text-gray-600">&copy; 2025 Michal Komar. All rights reserved.</p>
-        </footer>
-
+<body>
+    <a class="sr-only" href="#terminal">Skip to terminal</a>
+    <main id="terminal" class="terminal" aria-live="polite">
+        <div class="terminal-bar">
+            <span class="status-dot"></span>
+            <span class="status-dot"></span>
+            <span class="status-dot"></span>
+            <span>michalkomar.com</span>
+            <span>|</span>
+            <span data-clock>loading time…</span>
+        </div>
+        <section class="terminal-window" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></section>
+        <p id="terminal-instructions" class="sr-only">Type commands such as help, about, what, focus, philosophy, beyond, faq, contact, or clear. Use the up and down arrow keys to navigate command history.</p>
+        <form class="terminal-form" id="terminal-form" autocomplete="off">
+            <label for="terminal-input">michal@komar:~$</label>
+            <input id="terminal-input" name="command" type="text" spellcheck="false" placeholder="type 'help' to list commands" aria-describedby="terminal-instructions" aria-label="Command line">
+        </form>
     </main>
 
+    <section class="sr-only-block" aria-hidden="false">
+        <article>
+            <h1>Michal Komar</h1>
+            <p>I don't know why you're here. Maybe you clicked on a link, maybe you Googled my name, or maybe you're just curious. Whatever the reason, the only thing that matters is how I can entertain you or add value.</p>
+        </article>
+        <article>
+            <h2>What I Do</h2>
+            <p>I'm an AI Consultant at J&amp;T Banka (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation.</p>
+            <p>My work sits at the intersection of product strategy, AI implementation, and organizational change. I focus on deploying robust AI solutions in production, from intelligent automation to agentic systems that operate in regulated contexts. We've built systems that process over 2 million messages daily, consolidating data from 17 backend systems.</p>
+            <p>My role is to bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand.</p>
+        </article>
+        <article>
+            <h2>Key Focus Areas</h2>
+            <h3>AI-Driven Automation</h3>
+            <p>Building intelligent platforms that streamline banking operations, from customer service to document processing, using ML and predictive analytics.</p>
+            <h3>Agentic AI Systems</h3>
+            <p>Developing and deploying autonomous AI agents in regulated environments, complete with testing frameworks, oversight, and compliance mechanisms.</p>
+            <h3>Digital Platform Transformation</h3>
+            <p>Leading initiatives to modernize banking infrastructure, resulting in next-gen platforms that handle massive scale and complexity.</p>
+        </article>
+        <article>
+            <h2>Philosophy &amp; Approach</h2>
+            <blockquote>"The future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale."</blockquote>
+            <p>My approach combines three principles: Start with the customer problem, not the technology. Build systems that are transparent and explainable. And move fast, but with appropriate safeguards.</p>
+            <p>I've learned as much from failures as from successes. The wins came when we aligned incentives, moved iteratively, and focused relentlessly on measurable outcomes. We're at a rare inflection point where the technology, regulation, and market demand are all moving in the same direction.</p>
+        </article>
+        <article>
+            <h2>Beyond Work</h2>
+            <p>I post on X about AI, product strategy, and occasionally other things that catch my attention. I'm tall enough, curious enough, and definitely opinionated enough to have perspectives on most topics.</p>
+        </article>
+        <article>
+            <h2>Frequently Asked Questions</h2>
+            <h3>Who is Michal Komar?</h3>
+            <p>Michal Komar is an AI Consultant at J&amp;T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.</p>
+            <h3>What is Michal Komar's role at J&amp;T Banka?</h3>
+            <p>As AI Consultant at J&amp;T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.</p>
+            <h3>What expertise does Michal Komar have?</h3>
+            <p>Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services.</p>
+        </article>
+        <article>
+            <h2>Get in Touch</h2>
+            <p>If you're working on interesting problems at the intersection of AI and finance, or just want to discuss product strategy, let's talk.</p>
+            <p>I'm particularly interested in conversations about: Agentic AI in regulated environments; Building AI-native products; Organizational change in traditional institutions; The second-order effects of AI on banking.</p>
+        </article>
+    </section>
+
+    <template data-command="banner">
+        <pre class="command-block">
+╔══════════════════════════════════════════════════════════════╗
+║  Michal Komar · AI Consultant                                ║
+║  Type 'help' for available commands                          ║
+║  Location: Prague · Remote · Global                          ║
+╚══════════════════════════════════════════════════════════════╝
+        </pre>
+    </template>
+
+    <template data-command="help">
+        <pre class="command-block">
+┌─ Available Commands ─────────────────────────────────────────┐
+| help        · show this list                                 |
+| about       · hero introduction                              |
+| what        · what I do at J&amp;T Banka                        |
+| focus       · key focus areas                                |
+| philosophy  · philosophy &amp; approach                          |
+| beyond      · life outside of work                           |
+| faq         · frequently asked questions                     |
+| contact     · overview + channel commands                    |
+| contact li  · LinkedIn profile link                          |
+| contact x   · Twitter / X link                               |
+| contact gh  · GitHub link                                    |
+| clear       · clear the terminal                             |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="about">
+        <pre class="command-block">
+┌─ About ───────────────────────────────────────────────────────┐
+| Michal Komar                                                  |
+| AI Consultant                                                 |
+|                                                              |
+| I don't know why you're here. Maybe you clicked on a link,    |
+| maybe you Googled my name, or maybe you're just curious.      |
+| Whatever the reason, the only thing that matters is how I can |
+| entertain you or add value.                                   |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="what">
+        <pre class="command-block">
+┌─ What I Do ───────────────────────────────────────────────────┐
+| I'm an AI Consultant at J&amp;T Banka (former Head of Digital     |
+| Experience), where I lead the transformation of banking       |
+| through artificial intelligence and digital innovation.       |
+|                                                              |
+| My work sits at the intersection of product strategy, AI      |
+| implementation, and organizational change. I focus on         |
+| deploying robust AI solutions in production, from expert      |
+| automation to agentic systems operating in regulated contexts.|
+| We've built systems that process over 2 million messages      |
+| daily, consolidating data from 17 backend systems.            |
+|                                                              |
+| My role is to bridge the gap between cutting-edge AI          |
+| capabilities and the trust and reliability that financial     |
+| services demand.                                              |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="focus">
+        <pre class="command-block">
+┌─ Key Focus Areas ─────────────────────────────────────────────┐
+| • AI-Driven Automation — Building intelligent platforms that  |
+|   streamline banking operations, from customer service to     |
+|   document processing, using ML and predictive analytics.     |
+| • Agentic AI Systems — Developing and deploying autonomous    |
+|   AI agents in regulated environments, complete with testing  |
+|   frameworks, oversight, and compliance mechanisms.           |
+| • Digital Platform Transformation — Leading initiatives to    |
+|   modernize banking infrastructure, resulting in next-gen     |
+|   platforms that handle massive scale and complexity.         |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="philosophy">
+        <pre class="command-block">
+┌─ Philosophy &amp; Approach ───────────────────────────────────────┐
+| "The future of banking isn't about replacing humans with AI - |
+|  it's about augmenting human capabilities with intelligent    |
+|  systems that handle complexity at scale."                    |
+|                                                              |
+| My approach combines three principles: Start with the         |
+| customer problem, not the technology. Build systems that are  |
+| transparent and explainable. And move fast, but with          |
+| appropriate safeguards.                                       |
+|                                                              |
+| I've learned as much from failures as from successes. The     |
+| wins came when we aligned incentives, moved iteratively, and  |
+| focused relentlessly on measurable outcomes. We're at a rare  |
+| inflection point where the technology, regulation, and market |
+| demand are all moving in the same direction.                  |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="beyond">
+        <pre class="command-block">
+┌─ Beyond Work ─────────────────────────────────────────────────┐
+| I post on X about AI, product strategy, and occasionally      |
+| other things that catch my attention. I'm tall enough,        |
+| curious enough, and definitely opinionated enough to have     |
+| perspectives on most topics.                                  |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="faq">
+        <pre class="command-block">
+┌─ Frequently Asked Questions ──────────────────────────────────┐
+| Who is Michal Komar?                                          |
+|   Michal Komar is an AI Consultant at J&amp;T Banka (former Head  |
+|   of Digital Experience) specializing in artificial           |
+|   intelligence transformation in banking. He leads initiatives|
+|   focused on intelligent automation, agentic AI systems, and  |
+|   digital platform modernization.                             |
+|                                                              |
+| What is Michal Komar's role at J&amp;T Banka?                    |
+|   As AI Consultant at J&amp;T Banka, Michal leads digital         |
+|   transformation initiatives including AI-driven automation,  |
+|   autonomous agent development, and platform modernization    |
+|   projects. His work focuses on deploying production AI       |
+|   systems in regulated banking environments.                  |
+|                                                              |
+| What expertise does Michal Komar have?                        |
+|   Michal Komar specializes in AI in banking, digital          |
+|   transformation, product strategy, agentic AI systems, and   |
+|   organizational change in regulated environments. He focuses |
+|   on the practical implementation of AI technologies in       |
+|   financial services.                                         |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="contact">
+        <pre class="command-block">
+┌─ Contact ─────────────────────────────────────────────────────┐
+| If you're working on interesting problems at the intersection |
+| of AI and finance, or just want to discuss product strategy,  |
+| let's talk.                                                   |
+|                                                              |
+| I'm particularly interested in conversations about:           |
+| • Agentic AI in regulated environments                        |
+| • Building AI-native products                                 |
+| • Organizational change in traditional institutions           |
+| • The second-order effects of AI on banking                   |
+|                                                              |
+| Channels:                                                     |
+|   contact li   → LinkedIn profile                             |
+|   contact x    → Twitter / X feed                             |
+|   contact gh   → GitHub repos                                 |
+|                                                              |
+| (Run those commands to get full links you can click.)         |
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+    </template>
+
+    <template data-command="contact li">
+        <p class="line"><a href="https://www.linkedin.com/in/michalkomar/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/michalkomar/</a></p>
+    </template>
+
+    <template data-command="contact x">
+        <p class="line"><a href="https://x.com/michalkomar" target="_blank" rel="noopener noreferrer">https://x.com/michalkomar</a></p>
+    </template>
+
+    <template data-command="contact gh">
+        <p class="line"><a href="https://github.com/michalkomar" target="_blank" rel="noopener noreferrer">https://github.com/michalkomar</a></p>
+    </template>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const output = document.getElementById('terminal-output');
+            const form = document.getElementById('terminal-form');
+            const input = document.getElementById('terminal-input');
+            const clock = document.querySelector('[data-clock]');
+            const templates = new Map();
+            const history = [];
+            let historyIndex = -1;
+            document.querySelectorAll('template[data-command]').forEach((tpl) => {
+                templates.set(tpl.dataset.command, tpl);
+            });
+
+            const printNode = (node) => {
+                const clone = node.content.cloneNode(true);
+                output.appendChild(clone);
+                output.scrollTop = output.scrollHeight;
+            };
+
+            const printLine = (text, className = 'system') => {
+                const line = document.createElement('p');
+                line.className = `line ${className}`;
+                line.textContent = text;
+                output.appendChild(line);
+                output.scrollTop = output.scrollHeight;
+            };
+
+            const runCommand = (command) => {
+                if (command === 'clear') {
+                    output.innerHTML = '';
+                    printNode(templates.get('banner'));
+                    printNode(templates.get('help'));
+                    return;
+                }
+
+                const tpl = templates.get(command);
+                if (tpl) {
+                    printNode(tpl);
+                } else {
+                    printLine(`command not found: ${command}`, 'error');
+                }
+            };
+
+            const updateClock = () => {
+                const now = new Date();
+                clock.textContent = now.toLocaleString('en-GB', {
+                    weekday: 'short', day: '2-digit', month: 'short',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+            };
+            updateClock();
+            setInterval(updateClock, 1000);
+
+            printNode(templates.get('banner'));
+            printNode(templates.get('help'));
+            printLine('Use the prompt below to explore. Commands are static and privacy-safe.', 'system');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const value = input.value.trim().toLowerCase();
+                if (!value) {
+                    return;
+                }
+                printLine(`michal@komar:~$ ${value}`, 'prompt');
+                runCommand(value);
+                history.push(value);
+                historyIndex = history.length;
+                input.value = '';
+            });
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowUp') {
+                    event.preventDefault();
+                    if (!history.length) {
+                        return;
+                    }
+                    if (historyIndex <= 0 || historyIndex > history.length - 1) {
+                        historyIndex = history.length - 1;
+                    } else {
+                        historyIndex -= 1;
+                    }
+                    input.value = history[historyIndex] || '';
+                } else if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    if (!history.length) {
+                        return;
+                    }
+                    if (historyIndex >= history.length - 1) {
+                        historyIndex = history.length;
+                        input.value = '';
+                    } else {
+                        historyIndex += 1;
+                        input.value = history[historyIndex] || '';
+                    }
+                } else if (event.key === 'Escape') {
+                    input.value = '';
+                    historyIndex = history.length;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
