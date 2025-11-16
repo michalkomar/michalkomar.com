@@ -134,8 +134,10 @@
         .line {
             margin: 0;
             white-space: pre-wrap;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
             line-height: 1.7;
+            max-width: 100%;
+            overflow-wrap: anywhere;
         }
 
         .line a {
@@ -159,10 +161,13 @@
 
         .terminal-form label {
             color: var(--prompt);
+            flex: 0 0 auto;
+            white-space: nowrap;
         }
 
         .terminal-form input {
             flex: 1;
+            min-width: 0;
             background: transparent;
             border: none;
             font-family: inherit;
@@ -203,6 +208,10 @@
             border-radius: 0;
             color: var(--terminal-text);
             overflow-x: auto;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            line-height: 1.7;
+            max-width: 100%;
+            overflow-wrap: anywhere;
         }
 
         pre.command-block a {
@@ -215,9 +224,19 @@
                 padding: 0.5rem;
             }
 
+            .terminal-window {
+                padding: 1rem;
+            }
+
             .terminal-form {
-                flex-direction: column;
-                align-items: stretch;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+
+            pre.command-block,
+            .line {
+                font-size: 0.78rem;
+                line-height: 1.5;
             }
         }
 
