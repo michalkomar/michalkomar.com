@@ -1,28 +1,26 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `index.html` is the single-page app; keep hero, services, and CTA sections modular via HTML comments already in place.
-- `styles.css` hosts hand-tuned overrides for Tailwind defaults; scope new selectors with descriptive prefixes (e.g., `.cta-`).
-- Structured content lives in `about.json`, `ai-profile.json`, and `updates.json`; keep keys camelCase and mirror fields referenced by SEO snippets inside `index.html`.
-- Static assets such as `favicon.svg`, `_headers`, and `robots.txt` deploy as-is to Cloudflare Pages; avoid deeply nested folders so the flat Pages deploy stays predictable.
+- `index.html` is the entire product: it contains the faux-terminal UI, all styling, JSON-LD, meta tags, and both the ASCII command templates and the mobile-only `plain-only` fallbacks. There is no external build step or component library, so edits must keep markup readable and well-commented.
+- Legacy assets (`styles.css`) remain only for reference; do not reintroduce new global CSS files unless the owner requests it. Machine-readable data (`about.json`, `ai-profile.json`, `updates.json`) and infrastructure files (`robots.txt`, `_headers`, `sitemap.xml`) should be kept up to date with any visible content changes.
 
 ## Build, Test, and Development Commands
 ```bash
-npm install            # One-time install; required for Wrangler CLI
-npx wrangler pages dev . --local true   # Preview the static site with CF Pages parity
-npm run deploy         # Deploy the current directory to michalkomar-com project
+npm install                       # install wrangler for deployments
+npx wrangler pages dev . --local true   # local preview with Cloudflare Pages router
+npm run deploy                    # deploy to michalkomar-com on Cloudflare Pages
 ```
-Run commands from the repo root; deployments rely on your `wrangler.toml` or environment variables for API credentials.
+No bundler is required; the HTML file loads directly in any browser for quick checks.
 
 ## Coding Style & Naming Conventions
-- Follow the existing 4-space indentation in `index.html`; keep sections separated by HTML comments for quick scrolling.
-- Prefer semantic HTML tags (`section`, `article`, `header`) before adding extra `div`s; align Tailwind utility stacks from general → specific (layout, spacing, color).
-- In `styles.css`, group related utilities under concise comments and use kebab-case class names. Run `npx prettier@latest index.html styles.css --write` if you introduce large blocks.
+- Follow the monospace CLI aesthetic: short lines, lowercase commands, and explicit `<template data-command="...">` blocks. If you add a new command, provide both `.ascii-only` and `.plain-only` variants so small screens stay legible.
+- Keep CSS within the main `<style>` block. Use CSS variables, `clamp()`, and `@media (prefers-color-scheme)` helpers exactly as the file does now. Respect the accessibility tweaks (wrapping, `overflow-wrap`, prompt label spacing) when editing.
+- Metadata: whenever you change copy about services, markets, or stats, update the JSON-LD, GEO meta tags, and the off-screen semantic sections that mirror terminal content.
 
 ## Testing Guidelines
-- No automated suite exists yet; before each PR, run the Wrangler dev server, test in both light/dark schemes, and check responsive breakpoints at 375px, 768px, and 1280px.
-- Validate structured data using Google’s Rich Results Test and ensure the JSON-LD in `index.html` matches the latest `about.json` values.
+- Manual tests only. Before opening a PR: run `npx wrangler pages dev` and exercise every command (`help`, `contact`, `contact li/x/gh`, etc.) in desktop and mobile widths, verifying that no horizontal scroll appears and keyboard history (↑/↓) works.
+- Validate structured data (Google Rich Results) and confirm `robots.txt`, `sitemap.xml`, and `about.json` still respond with current dates.
 
 ## Commit & Pull Request Guidelines
-- Match the existing imperative, sentence-style commits (`Add light/dark mode support`, `Remove FAQ entry`). Keep scope per commit small and reference issues with `#<id>` when applicable.
-- PRs should summarize the user-visible change, list manual test steps, include screenshots for visual tweaks, and confirm that `npm run deploy` (or a dry run) succeeds.
+- Use concise, imperative commits (e.g., `feat: add contact command`). Include screenshots or screen recordings for UI changes, noting both light/dark modes and a 375px viewport.
+- PR descriptions should mention which commands were affected, which manual tests were run (`wrangler pages dev`, mobile Safari/Chrome checks), and any SEO/meta updates applied.
