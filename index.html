@@ -269,7 +269,7 @@
         <section class="terminal-window" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></section>
         <p id="terminal-instructions" class="sr-only">Type commands such as help, about, what, focus, philosophy, beyond, faq, contact, or clear. Use the up and down arrow keys to navigate command history.</p>
         <form class="terminal-form" id="terminal-form" autocomplete="off">
-            <label for="terminal-input">michal@komar:~$</label>
+            <label for="terminal-input">root:~$</label>
             <input id="terminal-input" name="command" type="text" spellcheck="false" placeholder="type 'help' to list commands" aria-describedby="terminal-instructions" aria-label="Command line">
         </form>
     </main>
@@ -557,7 +557,7 @@
                 if (!value) {
                     return;
                 }
-                printLine(`michal@komar:~$ ${value}`, 'prompt');
+                printLine(`root:~$ ${value}`, 'prompt');
                 runCommand(value);
                 history.push(value);
                 historyIndex = history.length;
