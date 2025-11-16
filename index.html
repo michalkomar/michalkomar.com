@@ -101,7 +101,8 @@
         .terminal-bar {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             padding: 0.75rem 1rem;
             border-bottom: 1px solid var(--border);
             background: rgba(255, 255, 255, 0.06);
@@ -114,16 +115,35 @@
             color: var(--terminal-muted);
         }
 
+        .terminal-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex: 0 0 auto;
+        }
+
         .status-dot {
             width: 0.65rem;
             height: 0.65rem;
             border-radius: 50%;
             display: inline-block;
+            flex: 0 0 auto;
         }
 
         .status-dot:nth-child(1) { background: #ff5f56; }
         .status-dot:nth-child(2) { background: #ffbd2e; }
         .status-dot:nth-child(3) { background: #27c93f; }
+
+        .terminal-title {
+            flex: 0 0 auto;
+        }
+
+        .terminal-clock {
+            margin-left: auto;
+            flex: 1 1 auto;
+            min-width: 160px;
+            text-align: right;
+        }
 
         .terminal-window {
             flex: 1;
@@ -240,6 +260,15 @@
                 font-size: 0.78rem;
                 line-height: 1.5;
             }
+
+            .terminal-clock {
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .terminal-bar {
+                gap: 0.5rem;
+            }
         }
 
         @media (prefers-color-scheme: light) {
@@ -280,12 +309,14 @@
     <a class="sr-only" href="#terminal">Skip to terminal</a>
     <main id="terminal" class="terminal" aria-live="polite">
         <div class="terminal-bar">
-            <span class="status-dot"></span>
-            <span class="status-dot"></span>
-            <span class="status-dot"></span>
-            <span>michalkomar.com</span>
+            <div class="terminal-dots" aria-hidden="true">
+                <span class="status-dot"></span>
+                <span class="status-dot"></span>
+                <span class="status-dot"></span>
+            </div>
+            <span class="terminal-title">michalkomar.com</span>
             <span>|</span>
-            <span data-clock>loading time…</span>
+            <span class="terminal-clock" data-clock>loading time…</span>
         </div>
         <section class="terminal-window" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></section>
         <p id="terminal-instructions" class="sr-only">Type commands such as help, about, what, focus, philosophy, beyond, faq, contact, or clear. Use the up and down arrow keys to navigate command history.</p>
