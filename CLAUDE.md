@@ -23,9 +23,9 @@ npm run deploy                    # pushes the current tree to Cloudflare Pages
 You can also open `index.html` directly in the browser for quick checks.
 
 ## Terminal UI Rules
-- Commands must remain in lowercase (`help`, `contact li`, etc.). Adding a new command requires adding both ASCII and plain blocks, updating the off-screen semantic content, and documenting it in `help`.
+- Commands use bash/Unix conventions (`whoami`, `finger --linkedin`, `cat ~/.bashrc`, etc.). Adding a new command requires adding both ASCII and plain blocks, updating the off-screen semantic content, and documenting it in `help`.
 - The prompt is `root:~$` and supports history nav (↑/↓) plus `clear`. Preserve the JS history behavior when editing.
-- Mobile accessibility: `.ascii-only` blocks hide at ≤640px, while `.plain-only` blocks show text without headings. Don’t remove the wrapping safeguards (`overflow-wrap: anywhere`, `clamp()` fonts, etc.).
+- Mobile accessibility: `.ascii-only` blocks hide at ≤640px, while `.plain-only` blocks show text without headings. Don't remove the wrapping safeguards (`overflow-wrap: anywhere`, `clamp()` fonts, etc.).
 - Keep the `<noscript>` block in sync with the visible command list so the site remains informative when JS is disabled.
 
 ## SEO & GEO
@@ -35,7 +35,7 @@ You can also open `index.html` directly in the browser for quick checks.
 ## Testing Checklist
 1. `npx wrangler pages dev . --local true` – ensure all commands render, the clock updates, and no console errors.
 2. Test at 375px (mobile), 768px, and desktop widths. Verify no horizontal scrolling and that the plain blocks appear on mobile.
-3. Manual keyboard test: type a few commands, use ↑/↓, `clear`, and `contact li/x/gh` links.
+3. Manual keyboard test: type a few commands, use ↑/↓, `clear`, and `finger --linkedin/--twitter/--github` links.
 4. Validate structured data (Google Rich Results), and load `robots.txt`, `sitemap.xml`, and `about.json` to ensure dates/links remain accurate.
 
 ## Content Updates

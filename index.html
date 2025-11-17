@@ -376,11 +376,11 @@
         <noscript>
             <section class="noscript-fallback" aria-label="Terminal fallback output">
                 <p class="line system">JavaScript is disabled, so the interactive terminal is paused.</p>
-                <p class="line system">Available commands: help, about, what, focus, philosophy, beyond, faq, contact, contact li, contact x, contact gh, clear.</p>
+                <p class="line system">Available commands: banner, help, whoami, w, ps, cat ~/.bashrc, ls ~/life, apropos, finger, finger --linkedin, finger --twitter, finger --github, clear.</p>
                 <p class="line system">Visit LinkedIn: https://www.linkedin.com/in/michalkomar/ · X: https://x.com/michalkomar · GitHub: https://github.com/michalkomar.</p>
             </section>
         </noscript>
-        <p id="terminal-instructions" class="sr-only">Type commands such as help, about, what, focus, philosophy, beyond, faq, contact, or clear. Use the up and down arrow keys to navigate command history.</p>
+        <p id="terminal-instructions" class="sr-only">Type commands such as help, whoami, w, ps, cat ~/.bashrc, ls ~/life, apropos, finger, or clear. Use the up and down arrow keys to navigate command history.</p>
         <form class="terminal-form" id="terminal-form" autocomplete="off">
             <label for="terminal-input">root:~$</label>
             <input id="terminal-input" name="command" type="text" spellcheck="false" placeholder="type 'help' to list commands" aria-describedby="terminal-instructions" aria-label="Command line">
@@ -449,37 +449,39 @@
     <template data-command="help">
         <pre class="command-block ascii-only">
 ┌─ Available Commands ─────────────────────────────────────────┐
-| help        · show this list                                 |
-| about       · hero introduction                              |
-| what        · what I do at J&amp;T Banka                        |
-| focus       · key focus areas                                |
-| philosophy  · philosophy &amp; approach                          |
-| beyond      · life outside of work                           |
-| faq         · frequently asked questions                     |
-| contact     · overview + channel commands                    |
-| contact li  · LinkedIn profile link                          |
-| contact x   · Twitter / X link                               |
-| contact gh  · GitHub link                                    |
-| clear       · clear the terminal                             |
+| banner           · show welcome banner                       |
+| help             · show this list                            |
+| whoami           · hero introduction                         |
+| w                · what I do at J&amp;T Banka                   |
+| ps               · key focus areas                           |
+| cat ~/.bashrc    · philosophy &amp; approach                     |
+| ls ~/life        · life outside of work                      |
+| apropos          · frequently asked questions                |
+| finger           · contact overview                          |
+| finger --linkedin · LinkedIn profile link                    |
+| finger --twitter · Twitter / X link                          |
+| finger --github  · GitHub link                               |
+| clear            · clear the terminal                        |
 └──────────────────────────────────────────────────────────────┘
         </pre>
         <div class="command-block plain-only">
             <ul>
+                <li><code>banner</code> — show welcome banner</li>
                 <li><code>help</code> — show this list</li>
-                <li><code>about</code> — hero introduction</li>
-                <li><code>what</code> — what I do at J&amp;T Banka</li>
-                <li><code>focus</code> — key focus areas</li>
-                <li><code>philosophy</code> — philosophy &amp; approach</li>
-                <li><code>beyond</code> — life outside work</li>
-                <li><code>faq</code> — frequently asked questions</li>
-                <li><code>contact</code> — overview + channel commands</li>
-                <li><code>contact li</code> / <code>contact x</code> / <code>contact gh</code> — direct links</li>
+                <li><code>whoami</code> — hero introduction</li>
+                <li><code>w</code> — what I do at J&amp;T Banka</li>
+                <li><code>ps</code> — key focus areas</li>
+                <li><code>cat ~/.bashrc</code> — philosophy &amp; approach</li>
+                <li><code>ls ~/life</code> — life outside work</li>
+                <li><code>apropos</code> — frequently asked questions</li>
+                <li><code>finger</code> — contact overview</li>
+                <li><code>finger --linkedin</code> / <code>finger --twitter</code> / <code>finger --github</code> — direct links</li>
                 <li><code>clear</code> — clear the terminal</li>
             </ul>
         </div>
     </template>
 
-    <template data-command="about">
+    <template data-command="whoami">
         <pre class="command-block ascii-only">
 ┌─ About ───────────────────────────────────────────────────────┐
 | Michal Komar                                                  |
@@ -497,7 +499,7 @@
         </div>
     </template>
 
-    <template data-command="what">
+    <template data-command="w">
         <pre class="command-block ascii-only">
 ┌─ What I Do ───────────────────────────────────────────────────┐
 | I'm an AI Consultant at J&amp;T Banka (former Head of Digital     |
@@ -523,7 +525,7 @@
         </div>
     </template>
 
-    <template data-command="focus">
+    <template data-command="ps">
         <pre class="command-block ascii-only">
 ┌─ Key Focus Areas ─────────────────────────────────────────────┐
 | • AI-Driven Automation — Building intelligent platforms that  |
@@ -546,7 +548,7 @@
         </div>
     </template>
 
-    <template data-command="philosophy">
+    <template data-command="cat ~/.bashrc">
         <pre class="command-block ascii-only">
 ┌─ Philosophy &amp; Approach ───────────────────────────────────────┐
 | "The future of banking isn't about replacing humans with AI - |
@@ -576,7 +578,7 @@
         </div>
     </template>
 
-    <template data-command="beyond">
+    <template data-command="ls ~/life">
         <pre class="command-block ascii-only">
 ┌─ Beyond Work ─────────────────────────────────────────────────┐
 | I post on X about AI, product strategy, and occasionally      |
@@ -590,7 +592,7 @@
         </div>
     </template>
 
-    <template data-command="faq">
+    <template data-command="apropos">
         <pre class="command-block ascii-only">
 ┌─ Frequently Asked Questions ──────────────────────────────────┐
 | Who is Michal Komar?                                          |
@@ -622,7 +624,7 @@
         </div>
     </template>
 
-    <template data-command="contact">
+    <template data-command="finger">
         <pre class="command-block ascii-only">
 ┌─ Contact ─────────────────────────────────────────────────────┐
 | If you're working on interesting problems at the intersection |
@@ -636,9 +638,9 @@
 | • The second-order effects of AI on banking                   |
 |                                                              |
 | Channels:                                                     |
-|   contact li   → LinkedIn profile                             |
-|   contact x    → Twitter / X feed                             |
-|   contact gh   → GitHub repos                                 |
+|   finger --linkedin   → LinkedIn profile                      |
+|   finger --twitter    → Twitter / X feed                      |
+|   finger --github     → GitHub repos                          |
 |                                                              |
 | (Run those commands to get full links you can click.)         |
 └──────────────────────────────────────────────────────────────┘
@@ -651,19 +653,19 @@
                 <li>Organizational change in traditional institutions</li>
                 <li>The second-order effects of AI on banking</li>
             </ul>
-            <p>Use <code>contact li</code>, <code>contact x</code>, or <code>contact gh</code> for direct links.</p>
+            <p>Use <code>finger --linkedin</code>, <code>finger --twitter</code>, or <code>finger --github</code> for direct links.</p>
         </div>
     </template>
 
-    <template data-command="contact li">
+    <template data-command="finger --linkedin">
         <p class="line"><a href="https://www.linkedin.com/in/michalkomar/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/michalkomar/</a></p>
     </template>
 
-    <template data-command="contact x">
+    <template data-command="finger --twitter">
         <p class="line"><a href="https://x.com/michalkomar" target="_blank" rel="noopener noreferrer">https://x.com/michalkomar</a></p>
     </template>
 
-    <template data-command="contact gh">
+    <template data-command="finger --github">
         <p class="line"><a href="https://github.com/michalkomar" target="_blank" rel="noopener noreferrer">https://github.com/michalkomar</a></p>
     </template>
 

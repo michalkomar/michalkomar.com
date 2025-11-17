@@ -16,7 +16,7 @@ npx wrangler pages dev . --local true   # optional router that mimics Cloudflare
 You can also open `index.html` directly in a browser for a quick pass. No bundler or dev server is required.
 
 ## Manual Test Checklist
-1. Exercise all commands (`help`, `about`, `focus`, `faq`, `contact`, `contact li/x/gh`, `clear`).
+1. Exercise all commands (`banner`, `help`, `whoami`, `w`, `ps`, `cat ~/.bashrc`, `ls ~/life`, `apropos`, `finger`, `finger --linkedin/--twitter/--github`, `clear`).
 2. Confirm the prompt auto-focuses on load, after submitting commands, and after `clear`/`Escape`. Verify keyboard history (↑/↓) and `Escape` behavior, plus the live clock update.
 3. Resize to 375 px, tablet, and desktop widths to ensure `.ascii-only` and `.plain-only` swaps behave with no horizontal scroll.
 4. Temporarily disable JavaScript to verify the `<noscript>` fallback exposes command hints and links.
@@ -32,4 +32,4 @@ You can also deploy manually through the Cloudflare Pages UI by pointing it at t
 ## Housekeeping
 - When editing copy, update: command templates, the hidden semantic `<section>`, JSON-LD inside `index.html`, plus `about.json`/`ai-profile.json`.
 - Keep GEO meta tags, canonical URL, and social cards aligned with the current content.
-- Track tonal consistency with the CLI aesthetic (lowercase commands, monospace text, accessible contrast).
+- Track tonal consistency with the CLI aesthetic (bash/Unix commands, monospace text, accessible contrast).
