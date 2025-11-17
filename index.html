@@ -12,13 +12,15 @@
     <meta property="og:url" content="https://michalkomar.com">
     <meta property="og:title" content="Michal Komar – AI Consultant">
     <meta property="og:description" content="Prague-based consultant aligning agentic AI, automation, and UX for banks across the EU & US.">
-    <meta property="og:image" content="https://michalkomar.com/favicon.svg">
+    <meta property="og:image" content="https://michalkomar.com/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Michal Komar – AI Consultant">
     <meta name="twitter:description" content="Agentic AI and digital transformation guidance for regulated finance.">
-    <meta name="twitter:image" content="https://michalkomar.com/favicon.svg">
+    <meta name="twitter:image" content="https://michalkomar.com/social-card.png">
 
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#050505">
@@ -192,6 +194,12 @@
         .line.error { color: var(--error); }
         .line.success { color: var(--success); }
 
+        .noscript-fallback {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
         .terminal-form {
             display: flex;
             gap: 0.75rem;
@@ -353,7 +361,7 @@
 </head>
 <body>
     <a class="sr-only" href="#terminal">Skip to terminal</a>
-    <main id="terminal" class="terminal" aria-live="polite">
+    <main id="terminal" class="terminal">
         <div class="terminal-bar">
             <div class="terminal-dots" aria-hidden="true">
                 <span class="status-dot"></span>
@@ -365,6 +373,13 @@
             <span class="terminal-clock" data-clock>loading time…</span>
         </div>
         <section class="terminal-window" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></section>
+        <noscript>
+            <section class="noscript-fallback" aria-label="Terminal fallback output">
+                <p class="line system">JavaScript is disabled, so the interactive terminal is paused.</p>
+                <p class="line system">Available commands: help, about, what, focus, philosophy, beyond, faq, contact, contact li, contact x, contact gh, clear.</p>
+                <p class="line system">Visit LinkedIn: https://www.linkedin.com/in/michalkomar/ · X: https://x.com/michalkomar · GitHub: https://github.com/michalkomar.</p>
+            </section>
+        </noscript>
         <p id="terminal-instructions" class="sr-only">Type commands such as help, about, what, focus, philosophy, beyond, faq, contact, or clear. Use the up and down arrow keys to navigate command history.</p>
         <form class="terminal-form" id="terminal-form" autocomplete="off">
             <label for="terminal-input">root:~$</label>
@@ -661,6 +676,11 @@
             const templates = new Map();
             const history = [];
             let historyIndex = -1;
+            const focusPrompt = () => {
+                if (document.activeElement !== input) {
+                    input.focus({ preventScroll: true });
+                }
+            };
             document.querySelectorAll('template[data-command]').forEach((tpl) => {
                 templates.set(tpl.dataset.command, tpl);
             });
@@ -684,6 +704,7 @@
                     output.innerHTML = '';
                     printNode(templates.get('banner'));
                     printNode(templates.get('help'));
+                    focusPrompt();
                     return;
                 }
 
@@ -713,6 +734,7 @@
                 event.preventDefault();
                 const value = input.value.trim().toLowerCase();
                 if (!value) {
+                    focusPrompt();
                     return;
                 }
                 printLine(`root:~$ ${value}`, 'prompt');
@@ -720,6 +742,7 @@
                 history.push(value);
                 historyIndex = history.length;
                 input.value = '';
+                focusPrompt();
             });
 
             input.addEventListener('keydown', (event) => {
@@ -749,8 +772,11 @@
                 } else if (event.key === 'Escape') {
                     input.value = '';
                     historyIndex = history.length;
+                    focusPrompt();
                 }
             });
+
+            focusPrompt();
         });
     </script>
 </body>

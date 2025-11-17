@@ -6,11 +6,12 @@ Guidance for Claude Code when working in this repository.
 Single-file personal site (`index.html`) rendered as a faux terminal that responds to typed commands. There is no framework, bundler, or external stylesheet—everything (HTML, CSS, JS, metadata) lives in `index.html`. Deploys to Cloudflare Pages.
 
 ## Architecture & Key Files
-- **index.html** – Terminal window markup, inline CSS for light/dark themes, JavaScript command router, SEO meta tags, JSON-LD, and accessible off-screen sections that mirror the terminal content. Command responses exist in `<template data-command="...">` blocks with two variants:
+- **index.html** – Terminal window markup, inline CSS for light/dark themes, JavaScript command router, SEO meta tags, JSON-LD, `<noscript>` fallback, and accessible off-screen sections that mirror the terminal content. Command responses exist in `<template data-command="...">` blocks with two variants:
   - `.command-block.ascii-only` for desktop CLI styling
   - `.command-block.plain-only` for mobile friendly text
 - **about.json / ai-profile.json** – Machine-readable profile for AI crawlers. Update when visible copy changes. (The standalone `updates.json` feed has been removed.)
 - **robots.txt, sitemap.xml, _headers** – Crawling rules, sitemap metadata, and Cloudflare security headers.
+- **social-card.png** – 1200×630 raster asset referenced by Open Graph/Twitter tags. Update when narrative changes.
 - **styles.css** – Historical stylesheet; do not use unless explicitly instructed.
 
 ## Development & Preview
@@ -25,6 +26,7 @@ You can also open `index.html` directly in the browser for quick checks.
 - Commands must remain in lowercase (`help`, `contact li`, etc.). Adding a new command requires adding both ASCII and plain blocks, updating the off-screen semantic content, and documenting it in `help`.
 - The prompt is `root:~$` and supports history nav (↑/↓) plus `clear`. Preserve the JS history behavior when editing.
 - Mobile accessibility: `.ascii-only` blocks hide at ≤640px, while `.plain-only` blocks show text without headings. Don’t remove the wrapping safeguards (`overflow-wrap: anywhere`, `clamp()` fonts, etc.).
+- Keep the `<noscript>` block in sync with the visible command list so the site remains informative when JS is disabled.
 
 ## SEO & GEO
 - GEO meta tags (region, placename, coordinates) and Person JSON-LD must stay synced with visible content. Whenever you update location references or service offerings, update JSON-LD plus `about.json`/`ai-profile.json` and adjust the off-screen `<section>` content.

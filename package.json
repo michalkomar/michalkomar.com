@@ -2,10 +2,10 @@
   "name": "michalkomar.com",
   "version": "1.0.0",
   "description": "Personal website for Michal Komar.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "deploy": "wrangler pages deploy . --project-name=michalkomar-com",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No automated tests configured; run manual checklist from README.\""
   },
   "repository": {
     "type": "git",
