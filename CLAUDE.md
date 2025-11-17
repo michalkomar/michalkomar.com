@@ -9,7 +9,7 @@ Single-file personal site (`index.html`) rendered as a faux terminal that respon
 - **index.html** – Terminal window markup, inline CSS for light/dark themes, JavaScript command router, SEO meta tags, JSON-LD, and accessible off-screen sections that mirror the terminal content. Command responses exist in `<template data-command="...">` blocks with two variants:
   - `.command-block.ascii-only` for desktop CLI styling
   - `.command-block.plain-only` for mobile friendly text
-- **about.json / ai-profile.json / updates.json** – Machine-readable profile + feed for AI crawlers. Update when visible copy changes.
+- **about.json / ai-profile.json** – Machine-readable profile for AI crawlers. Update when visible copy changes. (The standalone `updates.json` feed has been removed.)
 - **robots.txt, sitemap.xml, _headers** – Crawling rules, sitemap metadata, and Cloudflare security headers.
 - **styles.css** – Historical stylesheet; do not use unless explicitly instructed.
 
@@ -28,7 +28,7 @@ You can also open `index.html` directly in the browser for quick checks.
 
 ## SEO & GEO
 - GEO meta tags (region, placename, coordinates) and Person JSON-LD must stay synced with visible content. Whenever you update location references or service offerings, update JSON-LD plus `about.json`/`ai-profile.json` and adjust the off-screen `<section>` content.
-- Keep `updates.json` fresh when announcing changes and bump `sitemap.xml` dates on deploys.
+- Keep `about.json`, `ai-profile.json`, and `sitemap.xml` dates in sync whenever visible content changes.
 
 ## Testing Checklist
 1. `npx wrangler pages dev . --local true` – ensure all commands render, the clock updates, and no console errors.

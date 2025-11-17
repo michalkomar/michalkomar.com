@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 - `index.html` is the entire product: it contains the faux-terminal UI, all styling, JSON-LD, meta tags, and both the ASCII command templates and the mobile-only `plain-only` fallbacks. There is no external build step or component library, so edits must keep markup readable and well-commented.
-- Legacy assets (`styles.css`) remain only for reference; do not reintroduce new global CSS files unless the owner requests it. Machine-readable data (`about.json`, `ai-profile.json`, `updates.json`) and infrastructure files (`robots.txt`, `_headers`, `sitemap.xml`) should be kept up to date with any visible content changes.
+- Legacy assets (`styles.css`) remain only for reference; do not reintroduce new global CSS files unless the owner requests it. Machine-readable data (`about.json`, `ai-profile.json`) and infrastructure files (`robots.txt`, `_headers`, `sitemap.xml`) should stay aligned with any visible content changes. (The previous `updates.json` feed has been retired.)
 
 ## Build, Test, and Development Commands
 ```bash
