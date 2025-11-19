@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michal Komar – AI Consultant</title>
-    <meta name="description" content="Michal Komar, AI Consultant at J&T Banka, specializing in AI-driven automation, agentic systems, and digital transformation in finance.">
+    <meta name="description" content="Michal Komar – AI Consultant at J&T Banka. Specializing in Agentic AI, Intelligent Automation, and Digital Transformation for regulated financial institutions.">
+    <meta name="keywords" content="AI Consultant, Agentic AI, Banking Automation, Digital Transformation, FinTech, J&T Banka, Prague, AI Strategy, Regulatory AI">
     <meta name="author" content="Michal Komar">
     <link rel="canonical" href="https://michalkomar.com">
 
@@ -325,10 +326,98 @@
             }
         }
 
-        @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: light) {
             .terminal-bar {
                 background: #f0f4f9;
             }
+        }
+
+        /* Reader Mode Styles */
+        .terminal-btn {
+            background: transparent;
+            border: 1px solid var(--terminal-muted);
+            color: var(--terminal-muted);
+            padding: 0.2rem 0.6rem;
+            font-family: inherit;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: auto;
+            transition: all 0.2s ease;
+        }
+
+        .terminal-btn:hover {
+            border-color: var(--terminal-accent);
+            color: var(--terminal-accent);
+        }
+
+        body.reader-active {
+            overflow-y: auto;
+            height: auto;
+            display: block;
+        }
+
+        body.reader-active #terminal {
+            display: none;
+        }
+
+        body.reader-active .sr-only-block {
+            position: static;
+            left: auto;
+            width: min(800px, 100%);
+            height: auto;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            overflow: visible;
+            clip: auto;
+        }
+
+        body.reader-active article {
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        body.reader-active h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--terminal-accent);
+        }
+
+        body.reader-active h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        body.reader-active h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            color: var(--prompt);
+        }
+
+        body.reader-active p, body.reader-active li {
+            font-size: 1.1rem;
+            color: var(--terminal-text);
+        }
+        
+        body.reader-active blockquote {
+            border-left: 4px solid var(--terminal-accent);
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            font-style: italic;
+            color: var(--terminal-muted);
+        }
+
+        /* Reader Mode Toggle (Fixed when active) */
+        body.reader-active .reader-toggle-fixed {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+            background: var(--terminal-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
     </style>
 
@@ -371,6 +460,7 @@
             <span class="terminal-title">michalkomar.com</span>
             <span>|</span>
             <span class="terminal-clock" data-clock>loading time…</span>
+            <button id="reader-mode-toggle" class="terminal-btn" aria-label="Toggle Reader Mode">Reader Mode</button>
         </div>
         <section class="terminal-window" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output"></section>
         <noscript>
@@ -388,29 +478,36 @@
     </main>
 
     <section class="sr-only-block" aria-hidden="false">
+        <button id="reader-mode-exit" class="terminal-btn reader-toggle-fixed" style="display: none;">Exit Reader Mode</button>
         <article>
             <h1>Michal Komar</h1>
-            <p>I don't know why you're here. Maybe you clicked on a link, maybe you Googled my name, or maybe you're just curious. Whatever the reason, the only thing that matters is how I can entertain you or add value.</p>
+            <p class="lead">AI Consultant at J&T Banka. Specializing in Agentic AI, Intelligent Automation, and Digital Transformation.</p>
+            <p>I bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand. Based in Prague, working globally.</p>
         </article>
         <article>
             <h2>What I Do</h2>
-            <p>I'm an AI Consultant at J&amp;T Banka (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation.</p>
+            <p>I am an AI Consultant at J&T Banka (former Head of Digital Experience), where I lead the transformation of banking through artificial intelligence and digital innovation.</p>
             <p>My work sits at the intersection of product strategy, AI implementation, and organizational change. I focus on deploying robust AI solutions in production, from intelligent automation to agentic systems that operate in regulated contexts. We've built systems that process over 2 million messages daily, consolidating data from 17 backend systems.</p>
             <p>My role is to bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand.</p>
         </article>
         <article>
             <h2>Key Focus Areas</h2>
             <h3>AI-Driven Automation</h3>
-            <p>Building intelligent platforms that streamline banking operations, from customer service to document processing, using ML and predictive analytics.</p>
+            <p>Building intelligent platforms that streamline banking operations, from customer service to document processing, using ML and predictive analytics. We focus on measurable efficiency gains and error reduction in high-volume workflows.</p>
             <h3>Agentic AI Systems</h3>
-            <p>Developing and deploying autonomous AI agents in regulated environments, complete with testing frameworks, oversight, and compliance mechanisms.</p>
+            <p>Developing and deploying autonomous AI agents in regulated environments. This involves creating robust testing frameworks, human-in-the-loop oversight mechanisms, and strict compliance adherence to ensure agents act reliably within financial constraints.</p>
             <h3>Digital Platform Transformation</h3>
-            <p>Leading initiatives to modernize banking infrastructure, resulting in next-gen platforms that handle massive scale and complexity.</p>
+            <p>Leading initiatives to modernize banking infrastructure. We replace legacy monoliths with modular, scalable platforms capable of handling the massive data throughput required by modern AI applications.</p>
         </article>
         <article>
-            <h2>Philosophy &amp; Approach</h2>
+            <h2>Philosophy & Approach</h2>
             <blockquote>"The future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale."</blockquote>
-            <p>My approach combines three principles: Start with the customer problem, not the technology. Build systems that are transparent and explainable. And move fast, but with appropriate safeguards.</p>
+            <p>My approach combines three principles:</p>
+            <ul>
+                <li><strong>Start with the customer problem</strong>, not the technology. AI is a tool, not the goal.</li>
+                <li><strong>Build systems that are transparent and explainable</strong>. In finance, a "black box" is a liability.</li>
+                <li><strong>Move fast, but with appropriate safeguards</strong>. Innovation needs velocity, but banking needs security.</li>
+            </ul>
             <p>I've learned as much from failures as from successes. The wins came when we aligned incentives, moved iteratively, and focused relentlessly on measurable outcomes. We're at a rare inflection point where the technology, regulation, and market demand are all moving in the same direction.</p>
         </article>
         <article>
@@ -420,16 +517,23 @@
         <article>
             <h2>Frequently Asked Questions</h2>
             <h3>Who is Michal Komar?</h3>
-            <p>Michal Komar is an AI Consultant at J&amp;T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.</p>
-            <h3>What is Michal Komar's role at J&amp;T Banka?</h3>
-            <p>As AI Consultant at J&amp;T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.</p>
+            <p>Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) specializing in artificial intelligence transformation in banking. He leads initiatives focused on intelligent automation, agentic AI systems, and digital platform modernization.</p>
+            <h3>What is Michal Komar's role at J&T Banka?</h3>
+            <p>As AI Consultant at J&T Banka, Michal leads digital transformation initiatives including AI-driven automation, autonomous agent development, and platform modernization projects. His work focuses on deploying production AI systems in regulated banking environments.</p>
             <h3>What expertise does Michal Komar have?</h3>
             <p>Michal Komar specializes in AI in banking, digital transformation, product strategy, agentic AI systems, and organizational change in regulated environments. He focuses on the practical implementation of AI technologies in financial services.</p>
         </article>
         <article>
             <h2>Get in Touch</h2>
             <p>If you're working on interesting problems at the intersection of AI and finance, or just want to discuss product strategy, let's talk.</p>
-            <p>I'm particularly interested in conversations about: Agentic AI in regulated environments; Building AI-native products; Organizational change in traditional institutions; The second-order effects of AI on banking.</p>
+            <p>I'm particularly interested in conversations about:</p>
+            <ul>
+                <li>Agentic AI in regulated environments</li>
+                <li>Building AI-native products</li>
+                <li>Organizational change in traditional institutions</li>
+                <li>The second-order effects of AI on banking</li>
+            </ul>
+            <p>Find me on <a href="https://www.linkedin.com/in/michalkomar/">LinkedIn</a>, <a href="https://x.com/michalkomar">X (Twitter)</a>, or <a href="https://github.com/michalkomar">GitHub</a>.</p>
         </article>
     </section>
 
@@ -777,6 +881,28 @@
                     focusPrompt();
                 }
             });
+
+            const toggleBtn = document.getElementById('reader-mode-toggle');
+            const exitBtn = document.getElementById('reader-mode-exit');
+            
+            const toggleReaderMode = () => {
+                document.body.classList.toggle('reader-active');
+                const isActive = document.body.classList.contains('reader-active');
+                
+                if (isActive) {
+                    toggleBtn.style.display = 'none';
+                    exitBtn.style.display = 'block';
+                    // Announce to screen readers
+                    exitBtn.focus();
+                } else {
+                    toggleBtn.style.display = 'block';
+                    exitBtn.style.display = 'none';
+                    toggleBtn.focus();
+                }
+            };
+
+            toggleBtn.addEventListener('click', toggleReaderMode);
+            exitBtn.addEventListener('click', toggleReaderMode);
 
             focusPrompt();
         });

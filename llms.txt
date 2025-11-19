@@ -1,0 +1,25 @@
+# Michal Komar - AI Consultant
+
+## Bio
+Michal Komar is an AI Consultant at J&T Banka (former Head of Digital Experience) based in Prague. He specializes in aligning agentic AI, automation, and UX for banks across the EU & US. He bridges the gap between cutting-edge AI capabilities and the trust/reliability demanded by financial services.
+
+## Core Services & Expertise
+- **AI-Driven Automation**: Building intelligent platforms that streamline banking operations (customer service, document processing) using ML and predictive analytics.
+- **Agentic AI Systems**: Developing and deploying autonomous AI agents in regulated environments, including testing frameworks, oversight, and compliance.
+- **Digital Platform Transformation**: Modernizing banking infrastructure to handle massive scale and complexity.
+- **Product Strategy**: Aligning technical implementation with business goals and user needs.
+
+## Contact & Profiles
+- **Website**: https://michalkomar.com
+- **LinkedIn**: https://www.linkedin.com/in/michalkomar/
+- **X (Twitter)**: https://x.com/michalkomar
+- **GitHub**: https://github.com/michalkomar
+
+## Philosophy
+"The future of banking isn't about replacing humans with AI - it's about augmenting human capabilities with intelligent systems that handle complexity at scale."
+Michal believes in starting with the customer problem, building transparent/explainable systems, and moving fast with appropriate safeguards.
+
+## FAQ
+- **Role**: AI Consultant at J&T Banka.
+- **Location**: Prague, Czech Republic (serves EU & US).
+- **Focus**: Regulated finance, Agentic AI, Automation.
