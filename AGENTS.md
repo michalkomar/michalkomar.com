@@ -1,26 +1,27 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
-- `index.html` is the entire product: it contains the faux-terminal UI, all styling, JSON-LD, meta tags, and both the ASCII command templates and the mobile-only `plain-only` fallbacks. It also includes the `<noscript>` fallback that mirrors key output—keep it aligned with the command list whenever copy changes. There is no external build step or component library, so edits must keep markup readable and well-commented.
-- Legacy assets (`styles.css`) remain only for reference; do not reintroduce new global CSS files unless the owner requests it. Machine-readable data (`about.json`, `ai-profile.json`, `llms.txt`) and infrastructure files (`robots.txt`, `_headers`, `sitemap.xml`) should stay aligned with any visible content changes. Maintain `social-card.png` to match the positioning statement. (The previous `updates.json` feed has been retired.)
+## Structure
+- `index.html` is the entire product: terminal UI + command router + man-page profile + inline CSS + JSON-LD. No build step, no external assets besides `favicon.svg`/`social-card.png`.
+- The man page (`#man`) is the SEO surface — real visible content, never hidden. The terminal is progressive enhancement on top.
+- Machine-readable mirrors: `llms.txt`, `about.json`, `ai-profile.json`. Infrastructure: `robots.txt`, `sitemap.xml`, `_headers`.
 
-## Build, Test, and Development Commands
+## Commands & content
+- Commands live in the `CMDS` registry + `ALIAS` map inside `index.html`; output templates are `<template data-cmd="...">` blocks — one reflowable variant, no fixed-width ASCII boxes, must wrap cleanly at 320px.
+- Legacy aliases (`w`, `ps`, `cat ~/.bashrc`, `apropos`, `finger --linkedin`, …) must keep working.
+- Any copy change propagates to: man page, templates, JSON-LD `@graph`, `llms.txt`, `about.json`, `ai-profile.json`, plus `dateModified`/`lastmod` dates.
+- Facts must stay verifiable (site history, LinkedIn, Trask/Ackee case studies). The repo is public: never commit personal email addresses or secrets.
+
+## Build, test, deploy
 ```bash
-npm install                       # install wrangler for deployments
-npx wrangler pages dev . --local true   # local preview with Cloudflare Pages router
-npm run deploy                    # deploy to michalkomar-com on Cloudflare Pages
+npm install
+npm run dev      # wrangler pages dev . --local true
+npm test         # syntax-checks inline JS
+npm run deploy   # manual; pushing to main also auto-deploys via Cloudflare Git integration
 ```
-No bundler is required; the HTML file loads directly in any browser for quick checks.
 
-## Coding Style & Naming Conventions
-- Follow the monospace CLI aesthetic: short lines, lowercase commands, and explicit `<template data-command="...">` blocks. If you add a new command, provide both `.ascii-only` and `.plain-only` variants so small screens stay legible.
-- Keep CSS within the main `<style>` block. Use CSS variables, `clamp()`, and `@media (prefers-color-scheme)` helpers exactly as the file does now. Respect the accessibility tweaks (wrapping, `overflow-wrap`, prompt label spacing) when editing.
-- Metadata: whenever you change copy about services, markets, or stats, update the JSON-LD, GEO meta tags, and the off-screen semantic sections that mirror terminal content.
+## Style
+- Keep the CLI aesthetic: lowercase commands, man-page voice, amber/paper themes via CSS custom properties, system mono stack (no webfonts).
+- Accessibility floor: visible `:focus-visible`, `prefers-reduced-motion` respected, input ≥16px, `role="log"` + `aria-live` on output, AA contrast in both themes.
 
-## Testing Guidelines
-- Manual tests only. Before opening a PR: run `npx wrangler pages dev` and exercise every command (`help`, `contact`, `contact li/x/gh`, etc.) in desktop and mobile widths, verifying that no horizontal scroll appears and keyboard history (↑/↓) works.
-- Validate structured data (Google Rich Results) and confirm `robots.txt`, `sitemap.xml`, and `about.json` still respond with current dates.
-
-## Commit & Pull Request Guidelines
-- Use concise, imperative commits (e.g., `feat: add contact command`). Include screenshots or screen recordings for UI changes, noting both light/dark modes and a 375px viewport.
-- PR descriptions should mention which commands were affected, which manual tests were run (`wrangler pages dev`, mobile Safari/Chrome checks), and any SEO/meta updates applied.
+## Commits & PRs
+- Imperative, focused commits (`feat: add uptime command`). PRs: note affected commands, manual tests run, SEO/meta updates, and include 375px + desktop screenshots in both themes.

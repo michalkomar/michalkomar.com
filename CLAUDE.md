@@ -3,43 +3,41 @@
 Guidance for Claude Code when working in this repository.
 
 ## Project Overview
-Single-file personal site (`index.html`) rendered as a faux terminal that responds to typed commands. There is no framework, bundler, or external stylesheet—everything (HTML, CSS, JS, metadata) lives in `index.html`. Deploys to Cloudflare Pages.
+Single-file personal site (`index.html`) for Michal Komar — an interactive terminal (TUI) plus a fully indexable man-page profile. No framework, no bundler, no external fonts or stylesheets; everything lives in `index.html`. Public repo; deploys to Cloudflare Pages via Git integration (pushing to `main` deploys production).
 
-## Architecture & Key Files
-- **index.html** – Terminal window markup, inline CSS for light/dark themes, JavaScript command router, SEO meta tags, JSON-LD, `<noscript>` fallback, and accessible off-screen sections that mirror the terminal content. Command responses exist in `<template data-command="...">` blocks with two variants:
-  - `.command-block.ascii-only` for desktop CLI styling
-  - `.command-block.plain-only` for mobile friendly text
-- **about.json / ai-profile.json** – Machine-readable profile for AI crawlers. Update when visible copy changes. (The standalone `updates.json` feed has been removed.)
-- **robots.txt, sitemap.xml, _headers** – Crawling rules, sitemap metadata, and Cloudflare security headers.
-- **social-card.png** – 1200×630 raster asset referenced by Open Graph/Twitter tags. Update when narrative changes.
-- **styles.css** – Historical stylesheet; do not use unless explicitly instructed.
+## Architecture (`index.html`)
+1. **Head** — SEO/GEO meta, Open Graph/Twitter, and a JSON-LD `@graph` (WebSite + ProfilePage + Person + FAQPage).
+2. **Terminal** (`.term`, 100dvh) — static boot block (`#boot`: motd + neofetch identity card with the `<h1>`), live output (`#out`, `role="log"`), sticky prompt form, quick-command chips, tmux-style status bar with Prague clock and theme toggle.
+3. **Man page** (`#man`) — the readable profile styled as `MICHALKOMAR(1)`. This is the primary SEO surface: real, visible content (NAME, SYNOPSIS, DESCRIPTION, OPTIONS, TRACK RECORD, PHILOSOPHY, FAQ, PROJECTS, ENVIRONMENT incl. a Czech paragraph, HISTORY, SEE ALSO, BUGS, COLOPHON). Never hide it or move it off-screen.
+4. **Templates** (`<template data-cmd="...">`) — one reflowable variant per command output. No ASCII boxes with right-hand borders; blocks must wrap at 320px. (The old `.ascii-only`/`.plain-only` dual system is gone — do not reintroduce it.)
+5. **Script** — command registry `CMDS` (drives `help` and tab completion), `ALIAS` map (legacy commands like `w`, `ps`, `finger --linkedin` must keep working), virtual files in `FILES`, history in `localStorage`, ghost autosuggest, `Ctrl+L`/`Ctrl+C`/`Esc`, theme cycling (`auto|dark|light` via `data-theme` on `<html>`).
 
-## Development & Preview
+## Supporting files
+- `llms.txt` — structured profile for AI assistants; the richest machine-readable surface.
+- `about.json` / `ai-profile.json` — profile mirrors (CORS-enabled via `_headers`).
+- `robots.txt` — explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, …).
+- `sitemap.xml`, `_headers`, `favicon.svg`, `social-card.png`.
+
+## Adding a command
+1. Add to `CMDS` (or `ALIAS`) in the script — `help` and completion update automatically.
+2. If it prints content, add a `<template data-cmd="...">` block (single variant, reflowable).
+3. If the content is substantive, mirror it in the man page + `llms.txt` + JSON files.
+
+## Content rules
+- Every factual claim must stay grounded in verified sources (own site history, LinkedIn, Trask/Ackee case studies). Key verified stats: 2M+ messages/day, 17 backend systems, 350ms→80ms latency, mobile bank live 2024 used by ~⅓ of clients, J&T since 2019, AI Consultant since June 2025.
+- Name: "Michal Komar" for English branding, "Michal Komár" as Czech alternate — both intentional, keep both in meta/JSON-LD.
+- **No personal email addresses anywhere** — the repo is public. Contact = LinkedIn/X/GitHub only.
+- When visible copy changes, update in lockstep: man page, templates, JSON-LD, `llms.txt`, `about.json`, `ai-profile.json`, and `dateModified`/`lastmod` dates (sitemap + JSON).
+
+## Design tokens
+Amber-phosphor dark theme (default) / warm-paper light theme; system monospace stack (no webfonts). All colors are CSS custom properties in `:root` / `[data-theme="light"]` — keep AA contrast (amber on dark bg ≈ 9:1, bronze on paper ≈ 4.7:1). Respect `prefers-reduced-motion`; input font-size must stay ≥16px (iOS zoom).
+
+## Development & Testing
 ```bash
-npm install                       # install wrangler dependency
-npx wrangler pages dev . --local true   # watch mode with CF Pages routing
-npm run deploy                    # pushes the current tree to Cloudflare Pages
+npm run dev      # wrangler pages dev . --local true
+npm test         # syntax-checks the inline JS
+npm run deploy   # manual deploy (Git push also auto-deploys)
 ```
-You can also open `index.html` directly in the browser for quick checks.
+Manual checklist: exercise commands + aliases, tab completion, ↑/↓ history, Ctrl+L, theme cycle; test 320/375/768/desktop widths (no horizontal scroll); check the man page renders with JS disabled; validate structured data (Google Rich Results test).
 
-## Terminal UI Rules
-- Commands use bash/Unix conventions (`whoami`, `finger --linkedin`, `cat ~/.bashrc`, etc.). Adding a new command requires adding both ASCII and plain blocks, updating the off-screen semantic content, and documenting it in `help`.
-- The prompt is `root:~$` and supports history nav (↑/↓) plus `clear`. Preserve the JS history behavior when editing.
-- Mobile accessibility: `.ascii-only` blocks hide at ≤640px, while `.plain-only` blocks show text without headings. Don't remove the wrapping safeguards (`overflow-wrap: anywhere`, `clamp()` fonts, etc.).
-- Keep the `<noscript>` block in sync with the visible command list so the site remains informative when JS is disabled.
-
-## SEO & GEO
-- GEO meta tags (region, placename, coordinates) and Person JSON-LD must stay synced with visible content. Whenever you update location references or service offerings, update JSON-LD plus `about.json`/`ai-profile.json` and adjust the off-screen `<section>` content.
-- Keep `about.json`, `ai-profile.json`, and `sitemap.xml` dates in sync whenever visible content changes.
-
-## Testing Checklist
-1. `npx wrangler pages dev . --local true` – ensure all commands render, the clock updates, and no console errors.
-2. Test at 375px (mobile), 768px, and desktop widths. Verify no horizontal scrolling and that the plain blocks appear on mobile.
-3. Manual keyboard test: type a few commands, use ↑/↓, `clear`, and `finger --linkedin/--twitter/--github` links.
-4. Validate structured data (Google Rich Results), and load `robots.txt`, `sitemap.xml`, and `about.json` to ensure dates/links remain accurate.
-
-## Content Updates
-- Touching terminal copy requires updating: command templates (ASCII + plain), the hidden semantics block near the top, JSON-LD, and any related JSON files.
-- Mention new services/stats consistently across hero text, focus areas, FAQ, and contact hints.
-
-Follow these steps and keep commits focused (imperative tense). Screenshots or short videos of terminal interactions are highly encouraged for pull requests.
+Keep commits focused, imperative tense. Screenshots (dark + light, 375px + desktop) encouraged in PRs.

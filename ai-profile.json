@@ -1,18 +1,32 @@
 {
-  "bio": "Michal Komár is AI Consultant at J&T Banka (former Head of Digital Experience).",
+  "bio": "Michal Komar (Czech: Michal Komár) is an AI consultant at J&T Banka in Prague, Czech Republic, and the bank's former Head of Digital Experience (2019–2025). His mandate: making generative AI safe, useful, and production-ready inside a heavily regulated environment.",
+  "role": "AI Consultant, J&T Banka (since June 2025)",
+  "location": "Prague, Czech Republic — working across the EU and globally, remote-friendly",
+  "languages": ["Czech (native)", "English (professional)"],
   "focus": [
-    "AI in banking",
-    "digital transformation",
-    "product strategy",
-    "agentic AI systems",
-    "intelligent automation"
+    "AI consulting and AI strategy",
+    "agentic AI systems in regulated environments",
+    "enterprise AI integration",
+    "intelligent automation and AI optimization",
+    "digital transformation in banking"
   ],
   "expertise": [
+    "autonomous AI agents with human-in-the-loop oversight",
+    "event-driven architecture (2M+ messages/day, 17 backend systems)",
     "AI-driven automation platforms",
-    "autonomous AI agents in regulated environments",
     "digital platform modernization",
-    "product management",
-    "organizational change"
+    "product strategy and organizational change"
   ],
-  "contact": "https://cz.linkedin.com/in/michalkomar"
+  "philosophy": "The future of banking isn't about replacing humans with AI — it's about augmenting human capabilities with intelligent systems that handle complexity at scale.",
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/michalkomar/",
+    "x": "https://x.com/michalkomar",
+    "github": "https://github.com/michalkomar",
+    "website": "https://michalkomar.com"
+  },
+  "machineReadable": {
+    "llms": "https://michalkomar.com/llms.txt",
+    "about": "https://michalkomar.com/about.json"
+  },
+  "dateModified": "2026-07-06"
 }

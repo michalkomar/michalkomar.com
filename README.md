@@ -1,35 +1,42 @@
 # michalkomar.com
 
-Single-page faux-terminal website for Michal Komar. The entire experience lives in `index.html`, which ships markup, styles, metadata, and the JavaScript command router without a build step.
+Personal site of **[Michal Komar](https://michalkomar.com)** — AI consultant at J&T Banka in Prague, Czech Republic. Agentic AI, enterprise AI integration, and intelligent automation for banks and regulated enterprises, across the EU and worldwide.
 
-## Project Layout
-- `index.html` – terminal UI, command templates (`.ascii-only` + `.plain-only`), inline CSS, JSON-LD, semantic fallbacks, and a `<noscript>` block that mirrors key output.
-- `about.json`, `ai-profile.json` – machine-readable mirrors of the hero copy and expertise areas. Keep them updated whenever visible content changes.
-- `_headers`, `robots.txt`, `sitemap.xml` – Cloudflare security headers plus crawler directives. `sitemap.xml` now lists only the HTML + JSON profiles (the old `updates.json` feed has been removed).
-- `social-card.png` – 1200×630 raster image for Open Graph/Twitter cards. Refresh this when the positioning statement changes.
-- `styles.css` – historical reference only; do not import it in production.
+The whole site is **one hand-written HTML file** rendered as an interactive terminal: no framework, no build step, no fonts fetched, no cookies, no tracking. It deploys to Cloudflare Pages straight from this repo.
 
-## Local Development
+**Try it live: [michalkomar.com](https://michalkomar.com)** — type `help`, or `neofetch`, or just scroll: the full profile is also rendered as a Unix man page, `MICHALKOMAR(1)`.
+
+## What's inside
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | The entire product: terminal UI, command router, man page, inline CSS, JSON-LD |
+| `llms.txt` | Structured profile for AI assistants and LLM crawlers |
+| `about.json` / `ai-profile.json` | Machine-readable profile mirrors (CORS-enabled) |
+| `robots.txt` / `sitemap.xml` / `_headers` | Crawler directives, sitemap, Cloudflare security headers |
+| `social-card.png` | 1200×630 Open Graph / Twitter card |
+
+## Terminal features
+
+- Real shell ergonomics: tab completion, zsh-style ghost suggestions, persistent history (`↑`/`↓`), `Ctrl+L`, `Ctrl+C`, `Esc`
+- A small virtual filesystem: `ls`, `cat work.md`, `cat services.md`, `cat contact.md`…
+- `man michal` — the readable profile, styled as a genuine man page (also what search engines index)
+- `theme dark|light|auto`, a tmux-style status bar with Prague time, and a few undocumented commands (`help --all`)
+- Mobile-first: tap chips instead of typing, no horizontal scroll down to 320 px, amber-phosphor dark theme and paper light theme
+- Progressive enhancement: with JavaScript disabled, the boot card and man page still render everything
+
+## Develop & deploy
+
 ```bash
-npx wrangler pages dev . --local true   # optional router that mimics Cloudflare Pages
+npm install                            # wrangler
+npx wrangler pages dev . --local true  # local preview
+npm run deploy                         # Cloudflare Pages (or push — Git integration deploys automatically)
 ```
-You can also open `index.html` directly in a browser for a quick pass. No bundler or dev server is required.
 
-## Manual Test Checklist
-1. Exercise all commands (`banner`, `help`, `whoami`, `w`, `ps`, `cat ~/.bashrc`, `ls ~/life`, `apropos`, `finger`, `finger --linkedin/--twitter/--github`, `clear`).
-2. Confirm the prompt auto-focuses on load, after submitting commands, and after `clear`/`Escape`. Verify keyboard history (↑/↓) and `Escape` behavior, plus the live clock update.
-3. Resize to 375 px, tablet, and desktop widths to ensure `.ascii-only` and `.plain-only` swaps behave with no horizontal scroll.
-4. Temporarily disable JavaScript to verify the `<noscript>` fallback exposes command hints and links.
-5. Run structured-data validation (Google Rich Results) and confirm `robots.txt`, `sitemap.xml`, and `about.json` reflect the latest dates.
+## About Michal
 
-## Deployment
-```bash
-npm install            # installs Wrangler dependency if you need it
-npm run deploy         # wraps `wrangler pages publish` to michalkomar-com
-```
-You can also deploy manually through the Cloudflare Pages UI by pointing it at the GitHub repo (build command empty, output `/`).
+- **LinkedIn:** [linkedin.com/in/michalkomar](https://www.linkedin.com/in/michalkomar/)
+- **X:** [x.com/michalkomar](https://x.com/michalkomar)
+- **GitHub:** [github.com/michalkomar](https://github.com/michalkomar)
 
-## Housekeeping
-- When editing copy, update: command templates, the hidden semantic `<section>`, JSON-LD inside `index.html`, plus `about.json`/`ai-profile.json`.
-- Keep GEO meta tags, canonical URL, and social cards aligned with the current content.
-- Track tonal consistency with the CLI aesthetic (bash/Unix commands, monospace text, accessible contrast).
+© Michal Komar. Content is his; feel free to borrow ideas from the code.

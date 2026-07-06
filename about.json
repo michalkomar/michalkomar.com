@@ -1,14 +1,38 @@
 {
   "name": "Michal Komar",
+  "alternateName": "Michal Komár",
   "jobTitle": "AI Consultant",
   "organization": "J&T Banka",
-  "focus": ["AI strategy", "digital banking", "product design", "automation", "innovation in finance"],
-  "description": "AI consultant focused on transforming finance through automation, product design, and strategic innovation.",
+  "previousRole": "Head of Digital Experience, J&T Banka (2019–2025)",
+  "location": {
+    "city": "Prague",
+    "country": "Czech Republic",
+    "region": "European Union",
+    "coverage": ["Prague", "Czech Republic", "Europe", "remote", "global"]
+  },
+  "languages": ["cs", "en"],
+  "focus": [
+    "AI consulting",
+    "AI strategy",
+    "agentic AI systems",
+    "enterprise AI integration",
+    "intelligent automation",
+    "AI optimization",
+    "digital transformation",
+    "AI in banking and regulated industries"
+  ],
+  "description": "AI consultant at J&T Banka in Prague — agentic AI, enterprise AI integration, and intelligent automation for banks and regulated enterprises. Making generative AI safe, useful, and production-ready. Works across the EU and globally, remote-friendly, in Czech or English.",
+  "trackRecord": [
+    "Event-driven integration layer processing 2M+ messages/day across 17 backend systems",
+    "Response latency cut from 350 ms to 80 ms",
+    "Next-gen mobile bank live since 2024, used by roughly a third of the bank's clients"
+  ],
   "links": {
     "website": "https://michalkomar.com",
-    "twitter": "https://x.com/michalkomar",
     "linkedin": "https://www.linkedin.com/in/michalkomar/",
+    "twitter": "https://x.com/michalkomar",
     "github": "https://github.com/michalkomar"
   },
-  "keywords": ["Michal Komar", "AI consultant", "J&T Banka", "digital banking", "AI strategy", "banking innovation", "fintech", "automation"]
+  "keywords": ["Michal Komar", "Michal Komár", "AI consultant", "AI consulting", "agentic AI", "AI agents", "enterprise AI integration", "AI automation", "AI optimization", "AI strategy", "generative AI", "banking AI", "fintech", "digital transformation", "J&T Banka", "Prague", "Czech Republic", "Europe", "EU", "remote", "global"],
+  "dateModified": "2026-07-06"
 }

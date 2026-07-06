@@ -1,24 +1,36 @@
 {
   "name": "michalkomar.com",
-  "version": "1.0.0",
-  "description": "Personal website for Michal Komar.",
+  "version": "2.0.0",
+  "description": "Personal site of Michal Komar — AI consultant in Prague (agentic AI, enterprise AI integration, intelligent automation). Single-file terminal UI, no framework.",
   "main": "index.html",
   "scripts": {
+    "dev": "wrangler pages dev . --local true",
     "deploy": "wrangler pages deploy . --project-name=michalkomar-com",
-    "test": "echo \"No automated tests configured; run manual checklist from README.\""
+    "test": "node -e \"const s=require('fs').readFileSync('index.html','utf8');new Function(s.match(/<script>([^]*?)<\\/script>/)[1]);console.log('inline JS parses — now run the manual checklist from README')\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michalkomar/michalkomar.com.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": [
+    "michal-komar",
+    "ai-consultant",
+    "agentic-ai",
+    "enterprise-ai-integration",
+    "ai-automation",
+    "prague",
+    "czech-republic",
+    "terminal-website",
+    "tui",
+    "single-file",
+    "cloudflare-pages"
+  ],
+  "author": "Michal Komar (https://michalkomar.com)",
+  "license": "MIT",
+  "homepage": "https://michalkomar.com",
   "bugs": {
     "url": "https://github.com/michalkomar/michalkomar.com/issues"
   },
-  "homepage": "https://github.com/michalkomar/michalkomar.com#readme",
   "devDependencies": {
     "wrangler": "^4.47.0"
   }
