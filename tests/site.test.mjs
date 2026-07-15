@@ -28,6 +28,12 @@ test('verified scale and modification date stay synchronized', () => {
     for (const file of ['index.html', 'about.json', 'ai-profile.json', 'sitemap.xml']) {
         assert.match(read(file), /2026-07-16/, `${file} has a stale modification date`);
     }
+
+    assert.equal(
+        index.match(/https:\/\/michalkomar\.com\/social-card\.png\?v=20260716/g)?.length,
+        3,
+        'social-card metadata must use the current cache-busting version'
+    );
 });
 
 test('terminal output remains reflowable', () => {
