@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "wrangler pages dev . --local true",
     "deploy": "wrangler pages deploy . --project-name=michalkomar-com",
-    "test": "node -e \"const s=require('fs').readFileSync('index.html','utf8');new Function(s.match(/<script>([^]*?)<\\/script>/)[1]);console.log('inline JS parses — now run the manual checklist from README')\""
+    "test": "node --test tests/site.test.mjs"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,6 @@
     "url": "https://github.com/michalkomar/michalkomar.com/issues"
   },
   "devDependencies": {
-    "wrangler": "^4.47.0"
+    "wrangler": "^4.111.0"
   }
 }
