@@ -59,7 +59,7 @@
           "url": "https://michalkomar.com/",
           "isPartOf": { "@id": "https://michalkomar.com/#website" },
           "mainEntity": { "@id": "https://michalkomar.com/#person" },
-          "dateModified": "2026-07-06"
+          "dateModified": "2026-07-16"
         },
         {
           "@type": "Person",
@@ -148,7 +148,7 @@
               "name": "What has Michal Komar built?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "As Head of Digital Experience at J&T Banka (2019–2025) he led the bank's digital-channel rebuild: an event-driven integration layer processing over 2 million messages a day across 17 backend systems, cutting response latency from 350 ms to 80 ms, and a next-generation mobile bank launched in 2024 and used by roughly a third of the bank's clients."
+                "text": "As Head of Digital Experience at J&T Banka (2019–2025) he led the bank's digital-channel rebuild: an event-driven integration layer processing over 2 million messages a day across 20+ core systems, cutting response latency from 350 ms to 80 ms, and a next-generation mobile bank launched in 2024 and used by roughly a third of the bank's clients."
               }
             },
             {
@@ -195,7 +195,7 @@
             --bg-raise: #ece5d3;
             --bg-bar: #e6dec9;
             --ink: #241a0c;
-            --dim: #6e6350;
+            --dim: #6a5f4d;
             --amber: #8f5e00;
             --amber-soft: rgba(143, 94, 0, 0.12);
             --green: #4e6a1f;
@@ -209,7 +209,7 @@
                 --bg-raise: #ece5d3;
                 --bg-bar: #e6dec9;
                 --ink: #241a0c;
-                --dim: #6e6350;
+                --dim: #6a5f4d;
                 --amber: #8f5e00;
                 --amber-soft: rgba(143, 94, 0, 0.12);
                 --green: #4e6a1f;
@@ -294,10 +294,15 @@
             .flagline { grid-template-columns: 1fr; }
             .flagline dd { margin-bottom: 0.6rem; }
         }
-        .listing { color: var(--ink); }
-        .listing .perm { color: var(--dim); }
+        .listing { color: var(--ink); margin: 0; }
+        .listing-row { display: flex; flex-wrap: wrap; gap: 0 2ch; }
+        .listing .perm { color: var(--dim); white-space: pre; }
         .listing a { text-decoration: none; }
         .listing a:hover { text-decoration: underline; }
+        .history-listing { margin: 0; padding: 0; list-style: none; }
+        .history-listing li { display: grid; grid-template-columns: 4ch minmax(0, 1fr); gap: 0 1ch; }
+        .history-listing .num { color: var(--dim); text-align: right; }
+        .history-listing .cmd { min-width: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
 
         /* ── neofetch boot card (the signature) ────────────────── */
         .fetch {
@@ -349,7 +354,7 @@
         .prompt label { color: var(--amber); font-weight: 700; white-space: nowrap; }
         .prompt-shell { position: relative; flex: 1; min-width: 0; }
         .prompt input {
-            width: 100%; background: transparent; border: none; outline: none;
+            width: 100%; background: transparent; border: none;
             font: inherit; font-size: max(1rem, 1em); color: var(--ink);
             caret-color: var(--amber); caret-shape: block; padding: 0;
         }
@@ -480,7 +485,7 @@
                                 <dt>Name</dt><dd>Michal Komar <span aria-hidden="true">·</span> <span lang="cs">Michal Komár</span></dd>
                                 <dt>Role</dt><dd>AI Consultant @ J&amp;T Banka (ex-Head of Digital Experience)</dd>
                                 <dt>Focus</dt><dd>agentic AI · enterprise AI integration · intelligent automation</dd>
-                                <dt>Scale</dt><dd>2M+ messages/day across 17 backend systems</dd>
+                                <dt>Scale</dt><dd>2M+ messages/day across 20+ core systems</dd>
                                 <dt>Uptime</dt><dd>13+ years in digital product · 7 at J&amp;T Banka</dd>
                                 <dt>Region</dt><dd>Prague · Czech Republic · EU · remote / global</dd>
                                 <dt>Locale</dt><dd><span lang="cs">čeština</span> · English</dd>
@@ -575,7 +580,7 @@
             <h2>TRACK RECORD</h2>
             <p class="stat">Selected, publicly documented results from J&amp;T Banka's digital-channel rebuild, which he led as Head of Digital Experience:</p>
             <ul>
-                <li>An event-driven integration layer processing <b>2M+ messages a day</b> across <b>17 backend systems</b>, delivered in 7.5 months.</li>
+                <li>An event-driven integration layer processing <b>2M+ messages a day</b> across <b>20+ core systems</b>, delivered in 7.5 months.</li>
                 <li>Response latency cut from <b>350 ms to 80 ms</b> while consolidating data for banking, investments, and trading in one app.</li>
                 <li>A next-generation mobile bank for private-banking clients in CZ/SK — live since 2024 and used by roughly <b>a third of the bank's clients</b>, built to ČNB regulatory and OWASP security standards.</li>
             </ul>
@@ -642,7 +647,7 @@
         </section>
 
         <footer class="man-foot" aria-hidden="true">
-            <span>Prague</span><span class="c">2026-07-06</span><span>MICHALKOMAR(1)</span>
+            <span>Prague</span><span class="c">2026-07-16</span><span>MICHALKOMAR(1)</span>
         </footer>
     </main>
 
@@ -658,7 +663,7 @@
         <div class="out-block">
             <p class="hd">work.md</p>
             <p>AI Consultant at J&amp;T Banka since 2025 — before that, five years as the bank's Head of Digital Experience. The mandate: make generative AI safe, useful, and production-ready inside a heavily regulated bank.</p>
-            <p>As Head of Digital Experience I led the digital-channel rebuild: an event-driven integration layer processing 2M+ messages a day across 17 backend systems (latency down from 350 ms to 80 ms), and a next-gen mobile bank live since 2024, used by roughly a third of the bank's clients.</p>
+            <p>As Head of Digital Experience I led the digital-channel rebuild: an event-driven integration layer processing 2M+ messages a day across 20+ core systems (latency down from 350 ms to 80 ms), and a next-gen mobile bank live since 2024, used by roughly a third of the bank's clients.</p>
             <p>The through-line: bridge the gap between cutting-edge AI capabilities and the trust and reliability that financial services demand.</p>
         </div>
     </template>
@@ -782,6 +787,8 @@
             div.innerHTML = markup;
             out.appendChild(div); scrollDown();
         };
+        const escapeHTML = (value) => String(value)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         const tpl = (name) => {
             const t = document.querySelector(`template[data-cmd="${name}"]`);
             if (!t) return false;
@@ -841,7 +848,19 @@
         };
 
         let vimMode = false;
-        const history = JSON.parse(store.get('mk-history') || '[]');
+        const loadHistory = () => {
+            const saved = store.get('mk-history');
+            if (!saved) return [];
+            try {
+                const parsed = JSON.parse(saved);
+                return Array.isArray(parsed)
+                    ? parsed.filter((entry) => typeof entry === 'string').slice(-100)
+                    : [];
+            } catch {
+                return [];
+            }
+        };
+        const history = loadHistory();
         let hIndex = history.length;
 
         const RUN = {
@@ -864,9 +883,9 @@
             },
             ls() {
                 const rows = Object.keys(FILES).map((f) =>
-                    `<span class="perm">-rw-r--r--  michal  staff</span>  <a href="#" data-cat="${f}">${f}</a>`
-                ).join('\n');
-                html(`<pre class="listing" style="margin:0;background:none;border:none;padding:0">${rows}</pre>`);
+                    `<div class="listing-row"><span class="perm">-rw-r--r--  michal  staff</span><a href="#" data-cat="${f}">${f}</a></div>`
+                ).join('');
+                html(`<div class="listing">${rows}</div>`);
             },
             cat(args) {
                 const f = args.join(' ');
@@ -877,7 +896,8 @@
             man(args) {
                 if ((args[0] || 'michal') !== 'michal') return line(`No manual entry for ${args.join(' ')}`, 'err');
                 line('opening michalkomar(1)…');
-                document.getElementById('man').scrollIntoView({ behavior: 'smooth' });
+                const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+                document.getElementById('man').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
             },
             open(args) {
                 const key = (args[0] || '').toLowerCase();
@@ -893,7 +913,10 @@
             },
             history() {
                 if (!history.length) return line('history: empty (a clean slate)');
-                html(`<pre style="margin:0;background:none;border:none;padding:0">${history.map((c, i) => `  ${String(i + 1).padStart(3)}  ${c.replace(/&/g, '&amp;').replace(/</g, '&lt;')}`).join('\n')}</pre>`);
+                const rows = history.map((c, i) =>
+                    `<li><span class="num">${i + 1}</span><span class="cmd">${escapeHTML(c)}</span></li>`
+                ).join('');
+                html(`<ol class="history-listing">${rows}</ol>`);
             },
             clear() {
                 out.innerHTML = '';

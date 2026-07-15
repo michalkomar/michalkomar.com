@@ -28,7 +28,7 @@
 
 ## Track record (publicly documented)
 - Led J&T Banka's digital-channel rebuild as Head of Digital Experience:
-  event-driven integration layer processing 2M+ messages/day across 17 backend
+  event-driven integration layer processing 2M+ messages/day across 20+ core
   systems, delivered in 7.5 months; response latency cut from 350 ms to 80 ms.
   (Source: Trask case study — thetrask.com)
 - Next-generation mobile bank for private-banking clients in CZ/SK, live since

@@ -24,7 +24,7 @@ Single-file personal site (`index.html`) for Michal Komar — an interactive ter
 3. If the content is substantive, mirror it in the man page + `llms.txt` + JSON files.
 
 ## Content rules
-- Every factual claim must stay grounded in verified sources (own site history, LinkedIn, Trask/Ackee case studies). Key verified stats: 2M+ messages/day, 17 backend systems, 350ms→80ms latency, mobile bank live 2024 used by ~⅓ of clients, J&T since 2019, AI Consultant since June 2025.
+- Every factual claim must stay grounded in verified sources (own site history, LinkedIn, Trask/Ackee case studies). Key verified stats: 2M+ messages/day, 20+ core systems, 350ms→80ms latency, mobile bank live 2024 used by ~⅓ of clients, J&T since 2019, AI Consultant since June 2025.
 - Name: "Michal Komar" for English branding, "Michal Komár" as Czech alternate — both intentional, keep both in meta/JSON-LD.
 - **No personal email addresses anywhere** — the repo is public. Contact = LinkedIn/X/GitHub only.
 - When visible copy changes, update in lockstep: man page, templates, JSON-LD, `llms.txt`, `about.json`, `ai-profile.json`, and `dateModified`/`lastmod` dates (sitemap + JSON).

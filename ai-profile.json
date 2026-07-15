@@ -12,7 +12,7 @@
   ],
   "expertise": [
     "autonomous AI agents with human-in-the-loop oversight",
-    "event-driven architecture (2M+ messages/day, 17 backend systems)",
+    "event-driven architecture (2M+ messages/day, 20+ core systems)",
     "AI-driven automation platforms",
     "digital platform modernization",
     "product strategy and organizational change"
@@ -28,5 +28,5 @@
     "llms": "https://michalkomar.com/llms.txt",
     "about": "https://michalkomar.com/about.json"
   },
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-16"
 }

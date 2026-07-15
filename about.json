@@ -23,7 +23,7 @@
   ],
   "description": "AI consultant at J&T Banka in Prague — agentic AI, enterprise AI integration, and intelligent automation for banks and regulated enterprises. Making generative AI safe, useful, and production-ready. Works across the EU and globally, remote-friendly, in Czech or English.",
   "trackRecord": [
-    "Event-driven integration layer processing 2M+ messages/day across 17 backend systems",
+    "Event-driven integration layer processing 2M+ messages/day across 20+ core systems",
     "Response latency cut from 350 ms to 80 ms",
     "Next-gen mobile bank live since 2024, used by roughly a third of the bank's clients"
   ],
@@ -34,5 +34,5 @@
     "github": "https://github.com/michalkomar"
   },
   "keywords": ["Michal Komar", "Michal Komár", "AI consultant", "AI consulting", "agentic AI", "AI agents", "enterprise AI integration", "AI automation", "AI optimization", "AI strategy", "generative AI", "banking AI", "fintech", "digital transformation", "J&T Banka", "Prague", "Czech Republic", "Europe", "EU", "remote", "global"],
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-16"
 }
