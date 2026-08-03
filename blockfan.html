@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#8b5cf6">
+  <meta name="description" content="BlockFan is a gentle candy block puzzle for iPhone, iPad, and Mac.">
+  <title>BlockFan — sweet block puzzle</title>
+  <style>
+    :root { color-scheme: light; font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; color: #35275d; background: radial-gradient(circle at 50% 10%, #fff7c7, transparent 24rem), linear-gradient(155deg, #bdeeff, #f7cdf6 48%, #fff0ba); }
+    main { width: min(68rem, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0; }
+    .hero { display: grid; grid-template-columns: minmax(15rem, 28rem) 1fr; gap: clamp(1.5rem, 5vw, 5rem); align-items: center; min-height: 70vh; }
+    img { width: 100%; filter: drop-shadow(0 1.5rem 2.5rem #6040aa38); }
+    h1 { margin: 0; font-size: clamp(3.5rem, 10vw, 7rem); letter-spacing: -.07em; line-height: .9; color: #6541d8; text-shadow: 0 .08em 0 #fff; }
+    .tagline { font-size: clamp(1.2rem, 3vw, 2rem); font-weight: 750; color: #e24c91; }
+    .lead { max-width: 38rem; font-size: 1.1rem; line-height: 1.65; }
+    .card { background: #ffffffc9; border: 2px solid #fff; border-radius: 2rem; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 1rem 3rem #6c4ca928; backdrop-filter: blur(12px); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+    .fact { padding: 1rem; border-radius: 1.25rem; background: #fff; text-align: center; font-weight: 750; }
+    nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    a { color: #5b36c7; font-weight: 750; }
+    a.button { display: inline-block; padding: .9rem 1.2rem; border-radius: 999px; color: white; background: linear-gradient(135deg, #6d5be8, #e650a1); text-decoration: none; box-shadow: 0 .45rem 1rem #743fc43d; }
+    footer { margin-top: 2rem; text-align: center; font-size: .9rem; }
+    @media (max-width: 720px) { .hero { grid-template-columns: 1fr; text-align: center; } img { width: min(18rem, 75vw); margin: auto; } .lead { margin-inline: auto; } nav { justify-content: center; } .facts { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <img src="/blockfan-pip.png" width="768" height="768" alt="Pip, the smiling blue BlockFan mascot">
+      <div class="card">
+        <h1>BlockFan</h1>
+        <p class="tagline">A sweet block puzzle for kids and families.</p>
+        <p class="lead">Place glossy candy pieces, complete rows and columns, and enjoy gentle progression with Pip. Play Classic, try a daily challenge, or follow Pip’s Journey through thirty handcrafted goals.</p>
+        <div class="facts" aria-label="Key features">
+          <div class="fact">No ads</div>
+          <div class="fact">No purchases</div>
+          <div class="fact">Works offline</div>
+        </div>
+        <nav aria-label="BlockFan links">
+          <a class="button" href="https://github.com/michalkomar/BlockFan/issues/new">Get support</a>
+          <a href="/blockfan-privacy">Privacy policy</a>
+          <a href="/">Developer</a>
+        </nav>
+      </div>
+    </section>
+    <footer>© 2026 Michal Komar</footer>
+  </main>
+</body>
+</html>
