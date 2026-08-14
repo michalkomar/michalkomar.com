@@ -14,6 +14,9 @@
 /blockfan-pip.png
   Cache-Control: public, max-age=604800
 
+/blockfan-support.html
+  Cache-Control: public, max-age=300, must-revalidate
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
 

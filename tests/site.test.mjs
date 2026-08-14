@@ -5,6 +5,8 @@ import test from 'node:test';
 const read = (file) => readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
 const index = read('index.html');
 const appScript = index.match(/<script>([^]*?)<\/script>/)?.[1];
+const blockFan = read('blockfan.html');
+const blockFanSupport = read('blockfan-support.html');
 
 test('inline application JavaScript parses', () => {
     assert.ok(appScript, 'inline application script not found');
@@ -14,6 +16,15 @@ test('inline application JavaScript parses', () => {
 test('machine-readable profiles are valid JSON', () => {
     assert.doesNotThrow(() => JSON.parse(read('about.json')));
     assert.doesNotThrow(() => JSON.parse(read('ai-profile.json')));
+});
+
+test('BlockFan has a dedicated functional support surface', () => {
+    assert.match(blockFan, /href="\/blockfan-support\.html"/);
+    assert.match(blockFanSupport, /<h1>BlockFan Support<\/h1>/);
+    assert.match(blockFanSupport, /How to play/);
+    assert.match(blockFanSupport, /Common questions/);
+    assert.match(blockFanSupport, /Open support form/);
+    assert.match(read('sitemap.xml'), /blockfan-support\.html/);
 });
 
 test('verified scale and modification date stay synchronized', () => {
