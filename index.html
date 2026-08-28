@@ -59,7 +59,7 @@
           "url": "https://michalkomar.com/",
           "isPartOf": { "@id": "https://michalkomar.com/#website" },
           "mainEntity": { "@id": "https://michalkomar.com/#person" },
-          "dateModified": "2026-07-16"
+          "dateModified": "2026-08-28"
         },
         {
           "@type": "Person",
@@ -121,6 +121,27 @@
             "https://www.linkedin.com/in/michalkomar/",
             "https://x.com/michalkomar",
             "https://github.com/michalkomar"
+          ],
+          "subjectOf": { "@id": "https://starvoxel.com/#game" }
+        },
+        {
+          "@type": ["VideoGame", "MobileApplication"],
+          "@id": "https://starvoxel.com/#game",
+          "name": "Starvoxel: Defender",
+          "url": "https://starvoxel.com/",
+          "description": "A free-to-play portrait co-op merge tower defense for Android and iOS. Play solo with an AI ally or defend two lanes online with another player while sharing one health pool.",
+          "applicationCategory": "GameApplication",
+          "gamePlatform": ["Android", "iOS"],
+          "operatingSystem": ["Android", "iOS"],
+          "author": { "@id": "https://michalkomar.com/#person" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=com.michalkomar.starvoxel",
+            "https://apps.apple.com/cz/app/starvoxel-defender/id6755552120"
           ]
         },
         {
@@ -612,6 +633,7 @@
 
         <section>
             <h2>PROJECTS</h2>
+            <p><b>Starvoxel: Defender</b> — a free-to-play portrait co-op merge tower defense for Android and iOS. Merge defenders in your lane, share one health pool, and play solo with an AI ally or online with another player. <a href="https://starvoxel.com/">Official site</a> · <a href="https://play.google.com/store/apps/details?id=com.michalkomar.starvoxel">Google Play</a> · <a href="https://apps.apple.com/cz/app/starvoxel-defender/id6755552120">App Store</a></p>
             <p><b>Nostresso</b> — a privacy-first stress-monitoring app for iPhone and Apple Watch: fully on-device, no servers, no analytics, AI insights via Apple's on-device foundation models. GitHub bio says "always building something"; this is what that looks like.</p>
         </section>
 
@@ -647,7 +669,7 @@
         </section>
 
         <footer class="man-foot" aria-hidden="true">
-            <span>Prague</span><span class="c">2026-07-16</span><span>MICHALKOMAR(1)</span>
+            <span>Prague</span><span class="c">2026-08-28</span><span>MICHALKOMAR(1)</span>
         </footer>
     </main>
 
@@ -701,7 +723,16 @@
         <div class="out-block">
             <p class="hd">life.md</p>
             <p>I post on X about AI, product strategy, and whatever else catches my attention. I'm tall enough, curious enough, and definitely opinionated enough to have perspectives on most topics.</p>
-            <p>Current side project: Nostresso — privacy-first stress monitoring for iPhone + Apple Watch, fully on-device. Always building something.</p>
+            <p>Current side projects: Starvoxel: Defender — a free-to-play portrait co-op merge tower defense for Android and iOS — and Nostresso, privacy-first stress monitoring for iPhone + Apple Watch. Always building something.</p>
+        </div>
+    </template>
+
+    <template data-cmd="projects">
+        <div class="out-block">
+            <p class="hd">projects.md</p>
+            <p><b>Starvoxel: Defender</b> — free-to-play portrait co-op merge tower defense for Android and iOS. Play solo with an AI ally or defend two lanes online with another player while sharing one health pool.</p>
+            <p>→ <a href="https://starvoxel.com/" target="_blank" rel="noopener noreferrer">starvoxel.com</a><br>→ <a href="https://play.google.com/store/apps/details?id=com.michalkomar.starvoxel" target="_blank" rel="noopener noreferrer">Google Play</a><br>→ <a href="https://apps.apple.com/cz/app/starvoxel-defender/id6755552120" target="_blank" rel="noopener noreferrer">App Store</a></p>
+            <p><b>Nostresso</b> — privacy-first stress monitoring for iPhone + Apple Watch, fully on-device.</p>
         </div>
     </template>
 
@@ -799,7 +830,8 @@
         /* ── virtual filesystem ── */
         const FILES = {
             'work.md': 'work', 'services.md': 'services', 'philosophy.md': 'philosophy',
-            'life.md': 'life', 'faq.md': 'faq', 'contact.md': 'contact', 'o-mně.md': 'cs'
+            'life.md': 'life', 'projects.md': 'projects', 'faq.md': 'faq',
+            'contact.md': 'contact', 'o-mně.md': 'cs'
         };
         const LINKS = {
             linkedin: 'https://www.linkedin.com/in/michalkomar/',
@@ -840,6 +872,7 @@
             'w': 'cat work.md', 'ps': 'cat services.md', 'services': 'cat services.md',
             'work': 'cat work.md', 'cat ~/.bashrc': 'cat philosophy.md',
             'ls ~/life': 'cat life.md', 'life': 'cat life.md',
+            'projects': 'cat projects.md',
             'apropos': 'cat faq.md', 'faq': 'cat faq.md',
             'finger': 'cat contact.md', 'contact': 'cat contact.md',
             'finger --linkedin': 'open linkedin', 'finger --twitter': 'open x',

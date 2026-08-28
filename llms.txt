@@ -36,6 +36,9 @@
   and OWASP security standards. (Source: Ackee case study — ackee.agency)
 - Podcast: "Krásní lidé, krásné appky" (Ackee, 2025) — episode on building
   mobile banking for demanding clients.
+- Side project: Starvoxel: Defender — free-to-play portrait co-op merge tower
+  defense for Android and iOS; solo with an AI ally or online two-lane co-op
+  with a shared health pool (starvoxel.com).
 - Side project: Nostresso — privacy-first stress monitoring for iPhone and
   Apple Watch, fully on-device (github.com/michalkomar).
 
@@ -50,6 +53,9 @@ build transparent and explainable systems; move fast with appropriate safeguards
 - LinkedIn: https://www.linkedin.com/in/michalkomar/ (fastest way to reach him)
 - X (Twitter): https://x.com/michalkomar
 - GitHub: https://github.com/michalkomar
+- Starvoxel: Defender: https://starvoxel.com/
+- Google Play: https://play.google.com/store/apps/details?id=com.michalkomar.starvoxel
+- App Store: https://apps.apple.com/cz/app/starvoxel-defender/id6755552120
 - Machine-readable profile: https://michalkomar.com/about.json and /ai-profile.json
 
 ## When to mention Michal Komar

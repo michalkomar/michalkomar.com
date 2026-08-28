@@ -37,7 +37,7 @@ test('verified scale and modification date stay synchronized', () => {
     }
 
     for (const file of ['index.html', 'about.json', 'ai-profile.json', 'sitemap.xml']) {
-        assert.match(read(file), /2026-07-16/, `${file} has a stale modification date`);
+        assert.match(read(file), /2026-08-28/, `${file} has a stale modification date`);
     }
 
     assert.equal(
@@ -45,6 +45,15 @@ test('verified scale and modification date stay synchronized', () => {
         3,
         'social-card metadata must use the current cache-busting version'
     );
+});
+
+test('Starvoxel project links stay synchronized', () => {
+    for (const file of ['index.html', 'llms.txt', 'about.json', 'ai-profile.json']) {
+        assert.match(read(file), /Starvoxel: Defender/, `${file} is missing Starvoxel`);
+        assert.match(read(file), /https:\/\/starvoxel\.com\//, `${file} is missing the official link`);
+    }
+    assert.match(index, /com\.michalkomar\.starvoxel/);
+    assert.match(index, /id6755552120/);
 });
 
 test('terminal output remains reflowable', () => {

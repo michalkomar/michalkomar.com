@@ -27,6 +27,19 @@
     "Response latency cut from 350 ms to 80 ms",
     "Next-gen mobile bank live since 2024, used by roughly a third of the bank's clients"
   ],
+  "projects": [
+    {
+      "name": "Starvoxel: Defender",
+      "description": "Free-to-play portrait co-op merge tower defense for Android and iOS; solo with an AI ally or online two-lane co-op with a shared health pool.",
+      "website": "https://starvoxel.com/",
+      "googlePlay": "https://play.google.com/store/apps/details?id=com.michalkomar.starvoxel",
+      "appStore": "https://apps.apple.com/cz/app/starvoxel-defender/id6755552120"
+    },
+    {
+      "name": "Nostresso",
+      "description": "Privacy-first stress monitoring for iPhone and Apple Watch, fully on-device."
+    }
+  ],
   "links": {
     "website": "https://michalkomar.com",
     "linkedin": "https://www.linkedin.com/in/michalkomar/",
@@ -34,5 +47,5 @@
     "github": "https://github.com/michalkomar"
   },
   "keywords": ["Michal Komar", "Michal Komár", "AI consultant", "AI consulting", "agentic AI", "AI agents", "enterprise AI integration", "AI automation", "AI optimization", "AI strategy", "generative AI", "banking AI", "fintech", "digital transformation", "J&T Banka", "Prague", "Czech Republic", "Europe", "EU", "remote", "global"],
-  "dateModified": "2026-07-16"
+  "dateModified": "2026-08-28"
 }

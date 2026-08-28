@@ -17,6 +17,21 @@
     "digital platform modernization",
     "product strategy and organizational change"
   ],
+  "projects": [
+    {
+      "name": "Starvoxel: Defender",
+      "type": "mobile game",
+      "platforms": ["Android", "iOS"],
+      "description": "Free-to-play portrait co-op merge tower defense; solo with an AI ally or online two-lane co-op with a shared health pool.",
+      "url": "https://starvoxel.com/"
+    },
+    {
+      "name": "Nostresso",
+      "type": "mobile app",
+      "platforms": ["iPhone", "Apple Watch"],
+      "description": "Privacy-first stress monitoring, fully on-device."
+    }
+  ],
   "philosophy": "The future of banking isn't about replacing humans with AI — it's about augmenting human capabilities with intelligent systems that handle complexity at scale.",
   "contact": {
     "linkedin": "https://www.linkedin.com/in/michalkomar/",
@@ -28,5 +43,5 @@
     "llms": "https://michalkomar.com/llms.txt",
     "about": "https://michalkomar.com/about.json"
   },
-  "dateModified": "2026-07-16"
+  "dateModified": "2026-08-28"
 }
